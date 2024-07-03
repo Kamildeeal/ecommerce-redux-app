@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import ProductRedcuer from "./features/slices/ProductSlice";
+import ProductRedcuer from "./features/products/ProductSlice";
 
 // Infer the type of makeStore
 export type AppStore = ReturnType<typeof Store>;
@@ -10,7 +10,7 @@ export type AppDispatch = AppStore["dispatch"];
 export const Store = () => {
   return configureStore({
     reducer: {
-      Products: ProductRedcuer,
+      products: ProductRedcuer,
     },
   });
 };
