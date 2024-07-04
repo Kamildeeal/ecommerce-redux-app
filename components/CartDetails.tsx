@@ -19,9 +19,9 @@ export default function CartDetails() {
   );
 
   return (
-    <div className="relative mt-2 bg-slate-200 p-3 shadow-md rounded-md text-center max-w-max font-serif">
+    <div className=" mt-2 bg-slate-200 p-3 shadow-md rounded-md text-center max-w-max font-serif duration-300 hover:bg-slate-300">
       <Link href="/cart">
-        <h1 className="text-xl font-bold mb-4">Cart Details</h1>
+        <h1 className="text-xl font-bold mb-4 hover:underline">Cart Details</h1>
         <div className="text-xl">
           Total items: <br /> <b>{totalProducts}</b>
         </div>

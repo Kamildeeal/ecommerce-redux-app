@@ -5,14 +5,12 @@ import React, { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "@/lib/hookts";
 import { RootState } from "@/lib/store";
 import { fetchProducts } from "@/lib/features/products/FetchDataSlice";
-import {
-  addProduct,
-  decrementProductQuantity,
-  removeProduct,
-} from "@/lib/features/products/CartProductsSlice";
 import CartDetails from "./CartDetails";
 import Image from "next/image";
 import Hero from "./Hero";
+import AddProductButton from "./buttons/AddProduct";
+import RemoveProductButton from "./buttons/RemoveProduct";
+import FullClearItemButton from "./buttons/FullClearItemButton";
 
 const ProductList = () => {
   const dispatch = useAppDispatch();
@@ -38,10 +36,8 @@ const ProductList = () => {
     <div className="relative">
       <Hero />
       {cartProducts.length > 0 && (
-        <div className="hidden lg:block">
-          <div className="sticky top-10 right-0 ml-auto w-max h-0">
-            <CartDetails />
-          </div>
+        <div className="sticky top-10 right-0 ml-auto w-max h-0 hidden lg:block">
+          <CartDetails />
         </div>
       )}
       <div>
@@ -55,13 +51,14 @@ const ProductList = () => {
                 className="max-w-sm bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden"
               >
                 <Image
-                  className="w-full h-48 object-cover"
                   src={product.images[0]}
-                  alt={product.title}
-                  width={500}
-                  height={500}
+                  alt="Picture of the author"
+                  width={400}
+                  height={400}
+                  className="object-fill rounded-sm"
                 />
-                <div className="p-5">
+
+                <div className="p-5 ">
                   <h5 className="text-xl font-semibold tracking-tight text-gray-900">
                     {product.title}
                   </h5>
@@ -71,37 +68,17 @@ const ProductList = () => {
                       ${product.price}
                     </span>
                   </div>
-                  <button
-                    className="px-3 py-2 bg-blue-500 text-white text-xs font-bold uppercase rounded duration-500 hover:bg-blue-800"
-                    onClick={() => {
-                      dispatch(
-                        addProduct({
-                          id: product.id,
-                          title: product.title,
-                          description: product.description,
-                          price: product.price,
-                        })
-                      );
-                    }}
-                  >
-                    Add to Cart
-                  </button>
-                  <button
-                    className="px-3 py-2 bg-yellow-500 text-white text-xs font-bold uppercase rounded duration-500 hover:bg-yellow-800"
-                    onClick={() => {
-                      dispatch(decrementProductQuantity(product.id));
-                    }}
-                  >
-                    Decrement Quantity
-                  </button>
-                  <button
-                    className="px-3 py-2 bg-red-500 text-white text-xs font-bold uppercase rounded duration-500 hover:bg-red-800"
-                    onClick={() => {
-                      dispatch(removeProduct(product.id));
-                    }}
-                  >
-                    Remove from Cart
-                  </button>
+                  <div className="sticky bottom-2 flex flex-col justify-between m-2">
+                    <AddProductButton
+                      id={product.id}
+                      title={product.title}
+                      image={product.image}
+                      description={product.description}
+                      price={product.price}
+                    />
+                    {/* <RemoveProductButton id={product.id} /> */}
+                    <FullClearItemButton id={product.id} />
+                  </div>
                 </div>
               </div>
             ))}
