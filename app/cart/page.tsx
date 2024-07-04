@@ -1,4 +1,5 @@
 "use client";
+
 import React from "react";
 import CartDetails from "@/components/CartDetails";
 import { useAppDispatch, useAppSelector } from "@/lib/hookts";
@@ -15,23 +16,23 @@ export default function cartPage() {
   const cartProducts = useAppSelector((state: RootState) => state.cartProducts);
 
   return (
-    <div className="container mx-auto py-10">
+    <div className="mx-auto py-10 px-12">
       <h1 className="text-3xl font-bold mb-4">Your Cart</h1>
-      <CartDetails />
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-6 px-6 lg:px-48">
+      <div className="flex">
         {cartProducts?.map((product: any) => (
           <div
             key={product.id}
-            className="max-w-sm bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden"
+            className="w-full flex justify-between bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden py-4 px-8"
           >
-            <div className="relative w-[300px] h-[300px]">
-              <Image
-                src={product.image}
-                alt="Picture of the author"
-                sizes="300px"
-                fill
-                className="object-contain"
-              />
+            <div className="w-[100px] h-[100px] lg:min-w-[140px] lg:h-[140px]">
+              <div className="relative h-full w-full ">
+                <Image
+                  src={product.image[0]}
+                  alt={product.title}
+                  fill
+                  className="object-contain h-full w-full"
+                />
+              </div>
             </div>
             <div>{product.description}</div>
             <button
