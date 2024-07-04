@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
-import ProductRedcuer from "./features/products/ProductSlice";
+import ProductRedcuer from "./features/products/CartProductsSlice";
+import FetchDataReducer from "./features/products/FetchDataSlice";
 
 // Infer the type of makeStore
 export type AppStore = ReturnType<typeof Store>;
@@ -10,7 +11,8 @@ export type AppDispatch = AppStore["dispatch"];
 export const Store = () => {
   return configureStore({
     reducer: {
-      products: ProductRedcuer,
+      products: FetchDataReducer,
+      cartProducts: ProductRedcuer,
     },
   });
 };

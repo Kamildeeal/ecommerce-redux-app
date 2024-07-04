@@ -8,10 +8,10 @@ interface Product {
   quantity: number;
 }
 
-const initialState: Product[] = [];
+const initialState: Product[] | null = [];
 
-const productSlice = createSlice({
-  name: "products",
+const cartProducts = createSlice({
+  name: "cartProducts",
   initialState,
   reducers: {
     addProduct: (state, action: PayloadAction<Omit<Product, "quantity">>) => {
@@ -20,7 +20,6 @@ const productSlice = createSlice({
       );
       if (existingProduct) {
         existingProduct.quantity += 1;
-        existingProduct.price += action.payload.price;
       } else {
         state.push({ ...action.payload, quantity: 1 });
       }
@@ -33,7 +32,6 @@ const productSlice = createSlice({
       if (product) {
         if (product.quantity > 1) {
           product.quantity -= 1;
-          product.price -= product.price / product.quantity;
         } else {
           return state.filter((p) => p.id !== action.payload);
         }
@@ -43,5 +41,5 @@ const productSlice = createSlice({
 });
 
 export const { addProduct, removeProduct, decrementProductQuantity } =
-  productSlice.actions;
-export default productSlice.reducer;
+  cartProducts.actions;
+export default cartProducts.reducer;

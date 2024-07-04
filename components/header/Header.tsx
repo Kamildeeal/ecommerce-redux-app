@@ -1,11 +1,7 @@
 import React from "react";
 import Link from "next/link";
-import { useSelector } from "react-redux";
-import { RootState } from "@/lib/store"; // Upewnij się, że masz odpowiednią ścieżkę do store
 
 export default function Header() {
-  // const cartItems = useSelector((state: RootState) => state.cart.items);
-
   return (
     <header className="bg-gray-800 text-white py-4">
       <div className="container mx-auto flex justify-between items-center">
@@ -20,17 +16,17 @@ export default function Header() {
               </Link>
             </li>
             <li>
-              <Link href="/products" className="hover:text-gray-300">
+              <Link href="/" className="hover:text-gray-300">
                 Products
               </Link>
             </li>
             <li>
-              <Link href="/contact" className="hover:text-gray-300">
+              <Link href="/" className="hover:text-gray-300">
                 Contact
               </Link>
             </li>
             <li>
-              <Link href="/about" className="hover:text-gray-300">
+              <Link href="/" className="hover:text-gray-300">
                 About
               </Link>
             </li>
