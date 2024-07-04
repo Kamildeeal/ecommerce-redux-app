@@ -19,10 +19,6 @@ const ProductList = () => {
     dispatch(fetchProducts());
   }, [dispatch]);
 
-  if (loading) {
-    return <p>Loading...</p>;
-  }
-
   if (error) {
     return <p>Error: {error}</p>;
   }
@@ -32,7 +28,9 @@ const ProductList = () => {
       <Hero />
       <div>
         {!products || products.length === 0 ? (
-          <div className="flex justify-center">Loading...</div>
+          <div className="flex justify-center text-center w-full items-center mx-auto">
+            Loading...
+          </div>
         ) : (
           <div className="grid justify-items-center sm:justify-normal grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:px-12 gap-6 py-6 px-6 ">
             {products?.map((product: any) => (
@@ -60,7 +58,7 @@ const ProductList = () => {
                       ${product.price}
                     </span>
                   </div>
-                  <div className="flex flex-col mt-4">
+                  <div className="flex flex-col mt-4 items-center gap-2">
                     <AddProductButton
                       id={product.id}
                       title={product.title}
