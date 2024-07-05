@@ -1,22 +1,25 @@
 "use client";
 
+import { hideToastRemove } from "@/lib/features/toats/ToastsSlice";
+import { useAppDispatch, useAppSelector } from "@/lib/hookts";
 import { Toast } from "flowbite-react";
 import { HiX } from "react-icons/hi";
 
-interface ToastProps {
-  visible: boolean;
-  onClose: () => void;
-}
+export function ToastRemove() {
+  const { removeItemVisible } = useAppSelector((state) => state.toast);
+  const dispatch = useAppDispatch();
 
-export function ToastRemove({ visible, onClose }: ToastProps) {
-  if (!visible) return null;
+  if (!removeItemVisible) return null;
+
   return (
-    <Toast className="flex gap-3">
-      <div className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-red-100 text-red-500 dark:bg-red-800 dark:text-red-200">
-        <HiX className="h-5 w-5" />
-      </div>
-      <div className="ml-3 text-xl font-normal">Item has been deleted.</div>
-      <Toast.Toggle />
-    </Toast>
+    <div className="fixed top-[9.5rem] left-1/2 transform -translate-x-1/2 z-[100] border-red-500 border-2">
+      <Toast className="flex gap-3">
+        <div className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-red-100 text-red-500 dark:bg-red-800 dark:text-red-200">
+          <HiX className="h-5 w-5" />
+        </div>
+        <div className="ml-3 text-xl font-normal">Item has been deleted.</div>
+        <Toast.Toggle onClick={() => dispatch(hideToastRemove())} />
+      </Toast>
+    </div>
   );
 }

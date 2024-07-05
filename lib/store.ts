@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import ProductRedcuer from "./features/products/CartProductsSlice";
 import FetchDataReducer from "./features/products/FetchDataSlice";
+import ToastReducer from "./features/toats/ToastsSlice";
 
 // Infer the type of makeStore
 export type AppStore = ReturnType<typeof Store>;
@@ -13,6 +14,7 @@ export const Store = () => {
     reducer: {
       products: FetchDataReducer,
       cartProducts: ProductRedcuer,
+      toast: ToastReducer,
     },
   });
 };

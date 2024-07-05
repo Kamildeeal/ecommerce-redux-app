@@ -10,10 +10,14 @@ import AddProductButton from "./buttons/AddProduct";
 import FullClearItemButton from "./buttons/FullClearItemButton";
 import { ToastSuccess } from "@/utils/ToastSuccess";
 import { ToastRemove } from "@/utils/ToastRemove";
+import {
+  hideToastRemove,
+  hideToastSuccess,
+  showToastRemove,
+  showToastSuccess,
+} from "@/lib/features/toats/ToastsSlice";
 
 const ProductList = () => {
-  const [toastVisible, setToastVisible] = useState(false);
-  const [toastRemove, setToastRemove] = useState(false);
   const dispatch = useAppDispatch();
   const { loading, products, error } = useAppSelector(
     (state: RootState) => state.products
@@ -27,38 +31,24 @@ const ProductList = () => {
     return <p>Error: {error}</p>;
   }
 
-  const handleToastSucessfull = () => {
-    setToastVisible(true);
+  const handleAddItemToast = () => {
+    dispatch(showToastSuccess());
     setTimeout(() => {
-      setToastVisible(false);
+      dispatch(hideToastSuccess());
     }, 2000);
   };
 
-  const handleToastRemove = () => {
-    setToastRemove(true);
+  const handleRemoveItemToast = () => {
+    dispatch(showToastRemove());
     setTimeout(() => {
-      setToastRemove(false);
+      dispatch(hideToastRemove());
     }, 2000);
   };
 
   return (
     <div className="relative">
-      {toastVisible && (
-        <div className="fixed top-28 left-1/2 transform -translate-x-1/2 z-[100] border-green-500 border-2">
-          <ToastSuccess
-            visible={toastVisible}
-            onClose={() => setToastVisible(false)}
-          />
-        </div>
-      )}
-      {toastRemove && (
-        <div className="fixed top-[9.5rem] left-1/2 transform -translate-x-1/2 z-[100] border-red-500 border-2">
-          <ToastRemove
-            visible={toastRemove}
-            onClose={() => setToastRemove(false)}
-          />
-        </div>
-      )}
+      <ToastSuccess />
+      <ToastRemove />
       <Hero />
       <div>
         {!products || products.length === 0 ? (
@@ -66,7 +56,7 @@ const ProductList = () => {
             Loading...
           </div>
         ) : (
-          <div className="grid justify-items-center sm:justify-normal grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 lg:px-12 gap-6 py-6 px-6 ">
+          <div className="grid justify-items-center sm:justify-normal grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-col-3 xl:grid-cols-4 lg:px-12 gap-6 py-6 px-6 ">
             {products?.map((product: any) => (
               <div
                 key={product.id}
@@ -93,7 +83,7 @@ const ProductList = () => {
                     </span>
                   </div>
                   <div className="flex flex-col mt-4 items-center gap-2">
-                    <div onClick={handleToastSucessfull}>
+                    <div onClick={handleAddItemToast}>
                       <AddProductButton
                         id={product.id}
                         title={product.title}
@@ -102,7 +92,7 @@ const ProductList = () => {
                         price={product.price}
                       />
                     </div>
-                    <div onClick={handleToastRemove}>
+                    <div onClick={handleRemoveItemToast}>
                       <FullClearItemButton id={product.id} />
                     </div>
                   </div>
