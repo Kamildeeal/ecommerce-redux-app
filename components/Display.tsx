@@ -47,8 +47,12 @@ const ProductList = () => {
 
   return (
     <div className="relative">
-      <ToastSuccess />
-      <ToastRemove />
+      <div className="fixed top-[6rem] left-1/2 transform -translate-x-1/2 z-[100]">
+        <ToastSuccess />
+      </div>
+      <div className="fixed top-[9.5rem] left-1/2 transform -translate-x-1/2 z-[100]">
+        <ToastRemove />
+      </div>
       <Hero />
       <div>
         {!products || products.length === 0 ? (

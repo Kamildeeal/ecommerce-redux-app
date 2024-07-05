@@ -13,16 +13,16 @@ export default function cartPage() {
   const cartProducts = useAppSelector((state: RootState) => state.cartProducts);
 
   return (
-    <div>
+    <div className="flex mx-auto flex-col max-w-[1440px] w-full">
       <h1 className="text-3xl font-bold mb-4 text-center mt-4">Your's Cart</h1>
 
-      <div className="mx-auto py-10 px-12 flex flex-col lg:flex-row">
+      <div className="mx-auto py-10 px-12 flex flex-col sm:flex-row">
         <div className="flex flex-col">
           <div className="text-2xl">Products</div>
           {cartProducts?.map((product: any) => (
             <div
               key={product.id}
-              className="w-full flex justify-between bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden py-4 px-8 mt-8"
+              className="w-full flex bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden py-4 px-8 mt-8"
             >
               <div className="w-[100px] h-[100px] lg:min-w-[140px] lg:h-[140px] my-auto">
                 <div className="relative h-full w-full ">
@@ -34,7 +34,7 @@ export default function cartPage() {
                   />
                 </div>
               </div>
-              <div className="px-4 flex flex-col gap-2">
+              <div className="px-4 flex flex-col gap-2 mr-auto">
                 <div className="text-xl font-bold">{product.title}</div>
                 <div>{product.description}</div>
                 <div className="font-semibold">
@@ -45,12 +45,14 @@ export default function cartPage() {
                   <ReactStars count={5} size={24} color2={"#ffd700"} />
                 </div>
               </div>
-              <div className="flex flex-col justify-between">
-                <div className="text-center">${product.price}</div>
-                <QuantityControlers
-                  id={product.id}
-                  quantity={product.quantity}
-                />
+              <div>
+                <div className="flex flex-col justify-between h-full">
+                  <div className="text-center">${product.price}</div>
+                  <QuantityControlers
+                    id={product.id}
+                    quantity={product.quantity}
+                  />
+                </div>
               </div>
             </div>
           ))}

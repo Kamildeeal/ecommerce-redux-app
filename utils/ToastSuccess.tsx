@@ -11,7 +11,7 @@ export function ToastSuccess() {
 
   if (!addItemVisible) return null;
   return (
-    <div className="fixed top-[6rem] left-1/2 transform -translate-x-1/2 z-[100] border-green-500 border-2">
+    <div className=" border-green-500 border-4">
       <Toast className="flex gap-3">
         <div className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-green-100 text-green-500 dark:bg-green-800 dark:text-green-200">
           <HiCheck className="h-6 w-6" />
