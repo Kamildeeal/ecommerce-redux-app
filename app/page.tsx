@@ -1,4 +1,4 @@
-import DisplayProducts from "@/components/Display";
+import DisplayProducts from "@/components/homePage/Display";
 
 export default function HomePageShop() {
   return (

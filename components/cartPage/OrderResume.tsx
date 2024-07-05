@@ -2,7 +2,7 @@ import { useAppSelector } from "@/lib/hookts";
 import { RootState } from "@/lib/store";
 import React from "react";
 
-export default function () {
+export default function OrderResume() {
   const cartProducts = useAppSelector((state: RootState) => state.cartProducts);
 
   const totalPrice = cartProducts.reduce(
@@ -14,6 +14,7 @@ export default function () {
     (total, product) => total + product.quantity,
     0
   );
+
   return (
     <div className="font-semibold shadow-lg lg:sticky lg:top-32 lg:max-w-[380px] lg:w-full h-[200px] rounded-lg my-6 lg:my-0 lg:mx-8 border-4 bg-gray-200 max-w-full ">
       <h1 className="text-2xl text-center py-5 border-b-2 border-gray-600">

@@ -5,16 +5,19 @@ import { useAppSelector } from "@/lib/hookts";
 import { RootState } from "@/lib/store";
 import Image from "next/image";
 import FullClearItemButton from "@/components/buttons/FullClearItemButton";
-import ReactStars from "react-stars";
 import QuantityControlers from "@/components/cartPage/QuantityControlers";
 import OrderResume from "@/components/cartPage/OrderResume";
+import dynamic from "next/dynamic";
 
 export default function cartPage() {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const cartProducts = useAppSelector((state: RootState) => state.cartProducts);
+
+  const ReactStars = dynamic(() => import("react-stars"), { ssr: false });
 
   return (
     <div className="flex mx-auto flex-col max-w-[1440px] w-full">
-      <h1 className="text-3xl font-bold mb-4 text-center mt-4">Your's Cart</h1>
+      <h1 className="text-3xl font-bold mb-4 text-center mt-4">Yours Cart</h1>
 
       <div className="mx-auto py-10 px-12 flex flex-col sm:flex-row">
         <div className="flex flex-col">
