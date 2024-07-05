@@ -4,19 +4,13 @@ import React from "react";
 import { useAppSelector } from "@/lib/hookts";
 import { RootState } from "@/lib/store";
 import Image from "next/image";
-import RemoveProductButton from "@/components/buttons/RemoveProduct";
 import FullClearItemButton from "@/components/buttons/FullClearItemButton";
 import ReactStars from "react-stars";
-import useSummaryItemCost from "@/utils/useSummaryItemCostHook";
-import AddProductButton from "@/components/buttons/AddProduct";
-import QuantityIncrease from "@/components/buttons/QuantityIncrease";
-import QuantityDecrease from "@/components/buttons/QuantityDecrease";
 import QuantityControlers from "@/components/cartPage/QuantityControlers";
+import OrderResume from "@/components/cartPage/OrderResume";
 
 export default function cartPage() {
   const cartProducts = useAppSelector((state: RootState) => state.cartProducts);
-
-  const { summaryItemCost, totalPrice, totalProducts } = useSummaryItemCost();
 
   return (
     <div>
@@ -90,7 +84,7 @@ export default function cartPage() {
             </div>
           </div>
         </div>
-        <div className="lg:w-[480px] h-[400px] mx-8">RESUME OF ORDER</div>
+        <OrderResume />
       </div>
     </div>
   );
