@@ -32,7 +32,7 @@ const ProductList = () => {
             Loading...
           </div>
         ) : (
-          <div className="grid justify-items-center sm:justify-normal grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:px-12 gap-6 py-6 px-6 ">
+          <div className="grid justify-items-center sm:justify-normal grid-cols-1 md:grid-cols-3 lg:grid-cols-3 lg:px-12 gap-6 py-6 px-6 ">
             {products?.map((product: any) => (
               <div
                 key={product.id}
