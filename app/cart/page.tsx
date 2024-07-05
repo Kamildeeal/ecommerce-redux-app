@@ -16,7 +16,7 @@ export default function cartPage() {
     <div>
       <h1 className="text-3xl font-bold mb-4 text-center mt-4">Your's Cart</h1>
 
-      <div className="mx-auto py-10 px-12 flex">
+      <div className="mx-auto py-10 px-12 flex flex-col lg:flex-row">
         <div className="flex flex-col">
           <div className="text-2xl">Products</div>
           {cartProducts?.map((product: any) => (

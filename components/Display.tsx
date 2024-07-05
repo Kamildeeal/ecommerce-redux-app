@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "@/lib/hookts";
 import { RootState } from "@/lib/store";
 import { fetchProducts } from "@/lib/features/products/FetchDataSlice";
@@ -8,8 +8,12 @@ import Image from "next/image";
 import Hero from "./Hero";
 import AddProductButton from "./buttons/AddProduct";
 import FullClearItemButton from "./buttons/FullClearItemButton";
+import { ToastSuccess } from "@/utils/ToastSuccess";
+import { ToastRemove } from "@/utils/ToastRemove";
 
 const ProductList = () => {
+  const [toastVisible, setToastVisible] = useState(false);
+  const [toastRemove, setToastRemove] = useState(false);
   const dispatch = useAppDispatch();
   const { loading, products, error } = useAppSelector(
     (state: RootState) => state.products
@@ -23,8 +27,38 @@ const ProductList = () => {
     return <p>Error: {error}</p>;
   }
 
+  const handleToastSucessfull = () => {
+    setToastVisible(true);
+    setTimeout(() => {
+      setToastVisible(false);
+    }, 2000);
+  };
+
+  const handleToastRemove = () => {
+    setToastRemove(true);
+    setTimeout(() => {
+      setToastRemove(false);
+    }, 2000);
+  };
+
   return (
     <div className="relative">
+      {toastVisible && (
+        <div className="fixed top-28 left-1/2 transform -translate-x-1/2 z-[100] border-green-500 border-2">
+          <ToastSuccess
+            visible={toastVisible}
+            onClose={() => setToastVisible(false)}
+          />
+        </div>
+      )}
+      {toastRemove && (
+        <div className="fixed top-[9.5rem] left-1/2 transform -translate-x-1/2 z-[100] border-red-500 border-2">
+          <ToastRemove
+            visible={toastRemove}
+            onClose={() => setToastRemove(false)}
+          />
+        </div>
+      )}
       <Hero />
       <div>
         {!products || products.length === 0 ? (
@@ -59,14 +93,18 @@ const ProductList = () => {
                     </span>
                   </div>
                   <div className="flex flex-col mt-4 items-center gap-2">
-                    <AddProductButton
-                      id={product.id}
-                      title={product.title}
-                      image={product.images}
-                      description={product.description}
-                      price={product.price}
-                    />
-                    <FullClearItemButton id={product.id} />
+                    <div onClick={handleToastSucessfull}>
+                      <AddProductButton
+                        id={product.id}
+                        title={product.title}
+                        image={product.images}
+                        description={product.description}
+                        price={product.price}
+                      />
+                    </div>
+                    <div onClick={handleToastRemove}>
+                      <FullClearItemButton id={product.id} />
+                    </div>
                   </div>
                 </div>
               </div>

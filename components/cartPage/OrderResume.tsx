@@ -15,7 +15,7 @@ export default function () {
     0
   );
   return (
-    <div className="font-semibold sticky top-32 max-w-[380px] w-full h-[200px] rounded-lg mx-8 border-4 bg-gray-200">
+    <div className="font-semibold shadow-lg lg:sticky lg:top-32 lg:max-w-[380px] lg:w-full h-[200px] rounded-lg my-6 lg:my-0 lg:mx-8 border-4 bg-gray-200 max-w-full ">
       <h1 className="text-2xl text-center py-5 border-b-2 border-gray-600">
         Order Summary
       </h1>
