@@ -12,6 +12,8 @@ import ProductImage from "./ProductImage";
 import { Product } from "@/lib/types/types";
 import { setCurrentProduct } from "@/lib/features/products/ShowProductSlice";
 import { openModal } from "@/lib/features/modal/ModalSlice";
+import { styled } from "@mui/material/styles";
+import Tooltip, { TooltipProps, tooltipClasses } from "@mui/material/Tooltip";
 
 interface ProductCardProps {
   product: Product;
@@ -38,12 +40,21 @@ const ProductCard = ({ product }: ProductCardProps) => {
     dispatch(setCurrentProduct(product));
     dispatch(openModal());
   };
+  const LargeTooltip = styled(({ className, ...props }: TooltipProps) => (
+    <Tooltip {...props} classes={{ popper: className }} />
+  ))(() => ({
+    [`& .${tooltipClasses.tooltip}`]: {
+      fontSize: "1rem",
+    },
+  }));
 
   return (
     <div className="w-[240px] lg:w-[280px] bg-white border border-red-200 rounded-lg shadow-md overflow-hidden flex flex-col items-center">
-      <div onClick={() => handleDisplayInModal()} className="cursor-pointer">
-        <ProductImage src={product.images[0]} alt={product.title} />
-      </div>
+      <LargeTooltip title="Click to see details" placement="right-start" arrow>
+        <div onClick={() => handleDisplayInModal()} className="cursor-pointer">
+          <ProductImage src={product.images[0]} alt={product.title} />
+        </div>
+      </LargeTooltip>
       <div className="p-5 flex-1 flex flex-col justify-end">
         <h5 className="text-base lg:text-xl font-semibold tracking-tight text-gray-900 mb-auto">
           {product.title}
