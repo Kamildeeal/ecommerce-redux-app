@@ -8,7 +8,7 @@ interface NavbarLinkProps extends PropsWithChildren {
 export default function NavbarLink({ children, href }: NavbarLinkProps) {
   return (
     <div>
-      <Link href={href} className="hover:text-gray-300 lg:text-2xl">
+      <Link href={href} className="hover:text-gray-300 text-sm">
         {children}
       </Link>
     </div>

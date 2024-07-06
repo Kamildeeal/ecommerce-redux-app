@@ -18,7 +18,7 @@ export default function CartDetails() {
   );
 
   return (
-    <div className="absolute left-8 bottom-8 text-sm bg-blue-400 flex items-center text-center justify-center rounded-full p-1.5 w-6 h-6 z-50">
+    <div className="absolute left-9 bottom-6 text-sm bg-blue-400 flex items-center text-center justify-center rounded-full p-1.5 w-6 h-6 z-[52]">
       {totalProducts}
     </div>
   );

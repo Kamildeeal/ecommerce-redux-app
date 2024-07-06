@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import CartDetails from "../CartDetails";
+import CartDetails from "./CartDetails";
 import { useAppSelector } from "@/lib/hookts";
 import { RootState } from "@/lib/store";
 
@@ -13,7 +13,7 @@ export default function NavbarCartIcon() {
   );
   return (
     <Link href="/cart">
-      <div className="relative lg:text-2xl ml-8 bg-yellow-700  flex gap-2 px-6 py-2 rounded-md justify-center items-center cursor-pointer hover:bg-yellow-600">
+      <div className="relative lg:text-2xl bg-yellow-700  flex gap-2 px-6 py-2 rounded-md justify-center items-center cursor-pointer hover:bg-yellow-600">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -30,9 +30,6 @@ export default function NavbarCartIcon() {
         </svg>
         {cartProducts.length > 0 && <CartDetails />}
         <span className="hover:text-black">Cart</span>
-        {/* {cartProducts.length > 0 && (
-          <div className="text-lg">${totalPrice.toFixed(2)}</div>
-        )} */}
       </div>
     </Link>
   );
