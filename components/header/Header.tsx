@@ -1,24 +1,40 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import NavbarCartIcon from "./headerCompontents/NavbarCartIcon";
 import { closeModal } from "@/lib/features/modal/ModalSlice";
 import { useAppDispatch } from "@/lib/hookts";
 import { HiMenu } from "react-icons/hi";
+import CategoriesModal from "@/components/categories/CategoriesModal";
 
 export default function Header() {
+  const [openCategories, setOpenCategories] = useState<boolean>(false);
   const dispatch = useAppDispatch();
+
+  const handleOpenModal = () => {
+    setOpenCategories(true);
+    document.body.classList.add("overflow-hidden");
+  };
+
+  const handleCloseModal = () => {
+    setOpenCategories(false);
+    document.body.classList.remove("overflow-hidden");
+  };
+
   return (
     <header
       className="sticky top-0 left-0 z-40 bg-gray-800 text-white pb-4 pt-1"
       onClick={() => dispatch(closeModal())}
     >
-      <div className=" container mx-auto flex justify-between items-center">
+      <div className="z-50 container mx-auto flex justify-between items-center">
         <Link href="/" className="hover:text-gray-300">
           <h1 className="text-3xl font-bold mr-8">KamShop</h1>
         </Link>
         <div className="ml-auto flex items-center flex-grow mx-4">
-          <button className="hover:bg-gray-700 bg-gray-800 text-white px-4 py-2 rounded border-2 border-white mx-2 flex items-center">
+          <button
+            onClick={() => handleOpenModal()}
+            className="hover:bg-gray-700 bg-gray-800 text-white px-4 py-2 rounded border-2 border-white mx-2 flex items-center"
+          >
             <HiMenu className="mr-2 text-2xl" />
             <span className="relative bottom-[2px]">Categories</span>
           </button>
@@ -48,6 +64,9 @@ export default function Header() {
           <NavbarCartIcon />
         </nav>
       </div>
+      {openCategories && (
+        <CategoriesModal setOpenCategories={handleCloseModal} />
+      )}
     </header>
   );
 }

@@ -7,7 +7,7 @@ import Image from "next/image";
 import AddProductButton from "../buttons/AddProduct";
 import ReferenceComments from "./ReferenceComments";
 
-const InfoModal: React.FC = () => {
+const InfoModal = () => {
   const dispatch = useAppDispatch();
   const modal = useAppSelector((state: RootState) => state.modal.modal);
   const currentProduct = useAppSelector(
@@ -19,7 +19,7 @@ const InfoModal: React.FC = () => {
   }
 
   return (
-    //desktop tablet Modal - big devies
+    //desktop tablet Modal - big devices
     <div
       onClick={() => dispatch(closeModal())}
       className="z-[9] fixed top-0 left-0 w-[100vw] h-[100vh] bg-gray-300 bg-opacity-35"
