@@ -1,7 +1,6 @@
 import React, { PropsWithChildren } from "react";
 import { useAppDispatch } from "@/lib/hookts";
 import { addProduct } from "@/lib/features/products/CartProductsSlice";
-import Product from "@/lib/types/types";
 
 interface AddProductButtonProps {
   id: number;

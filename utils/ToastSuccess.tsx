@@ -1,6 +1,6 @@
 "use client";
 
-import { hideToastSuccess } from "@/lib/features/toats/ToastsSlice";
+import { hideToastSuccess } from "@/lib/features/toast/ToastsSlice";
 import { useAppDispatch, useAppSelector } from "@/lib/hookts";
 import { Toast } from "flowbite-react";
 import { HiCheck } from "react-icons/hi";

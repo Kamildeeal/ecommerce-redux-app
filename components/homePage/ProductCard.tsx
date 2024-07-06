@@ -5,11 +5,13 @@ import {
   hideToastSuccess,
   showToastRemove,
   hideToastRemove,
-} from "@/lib/features/toats/ToastsSlice";
+} from "@/lib/features/toast/ToastsSlice";
 import AddProductButton from "../buttons/AddProduct";
 import FullClearItemButton from "../buttons/FullClearItemButton";
 import ProductImage from "./ProductImage";
 import { Product } from "@/lib/types/types";
+import { setCurrentProduct } from "@/lib/features/products/ShowProductSlice";
+import { openModal } from "@/lib/features/modal/ModalSlice";
 
 interface ProductCardProps {
   product: Product;
@@ -32,11 +34,18 @@ const ProductCard = ({ product }: ProductCardProps) => {
     }, 2000);
   };
 
+  const handleDisplayInModal = () => {
+    dispatch(setCurrentProduct(product));
+    dispatch(openModal());
+  };
+
   return (
     <div className="w-[240px] lg:w-[280px] bg-white border border-red-200 rounded-lg shadow-md overflow-hidden flex flex-col items-center">
-      <ProductImage src={product.images[0]} alt={product.title} />
+      <div onClick={() => handleDisplayInModal()} className="cursor-pointer">
+        <ProductImage src={product.images[0]} alt={product.title} />
+      </div>
       <div className="p-5 flex-1 flex flex-col justify-end">
-        <h5 className="text-base lg:text-xl font-semibold tracking-tight text-gray-900">
+        <h5 className="text-base lg:text-xl font-semibold tracking-tight text-gray-900 mb-auto">
           {product.title}
         </h5>
         <div className="flex items-center justify-between mt-2">
