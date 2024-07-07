@@ -1,6 +1,6 @@
 // @/features/products/productsSlice.ts
 
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export interface Review {
@@ -25,6 +25,8 @@ export interface Product {
 interface FetchData {
   loading: boolean;
   products: Product[];
+  filteredProducts: Product[];
+  categoryFilter: string | null;
   error: null | string;
 }
 
@@ -36,16 +38,36 @@ export const fetchProducts = createAsyncThunk(
   }
 );
 
+//https://dummyjson.com/products?limit=100
+
 const initialState: FetchData = {
   loading: true,
   products: [],
+  filteredProducts: [],
+  categoryFilter: "allItems",
   error: null,
 };
 
 const productsSlice = createSlice({
   name: "products",
   initialState,
-  reducers: {},
+  reducers: {
+    setCategoryFilter: (state, action: PayloadAction<string | null>) => {
+      state.categoryFilter = action.payload;
+      if (state.categoryFilter) {
+        state.filteredProducts = state.products.filter(
+          (product) => product.category === state.categoryFilter
+        );
+      } else {
+        state.filteredProducts = state.products;
+      }
+    },
+    sortProductsByCategory: (state) => {
+      state.filteredProducts = [...state.filteredProducts].sort((a, b) =>
+        a.category.localeCompare(b.category)
+      );
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchProducts.pending, (state) => {
@@ -61,5 +83,6 @@ const productsSlice = createSlice({
       });
   },
 });
-
+export const { setCategoryFilter, sortProductsByCategory } =
+  productsSlice.actions;
 export default productsSlice.reducer;

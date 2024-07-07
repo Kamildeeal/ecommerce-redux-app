@@ -3,6 +3,7 @@
 import { useAppSelector } from "@/lib/hookts";
 import React from "react";
 import CategoriesList from "./CategoriesList";
+import TopLinksSection from "../header/headerCompontents/TopLinksSection";
 
 const CategoriesModal = ({ setOpenCategories }: any) => {
   const categories = useAppSelector((state) => state.products.products);
