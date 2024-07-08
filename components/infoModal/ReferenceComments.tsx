@@ -28,14 +28,3 @@ const ReferenceComments = ({ currentProduct }: any) => {
 };
 
 export default ReferenceComments;
-
-{
-  /* {currentProduct.reviews[0].comment} */
-}
-export interface Review {
-  rating: number;
-  comment: string;
-  date: string;
-  reviewerName: string;
-  reviewerEmail: string;
-}

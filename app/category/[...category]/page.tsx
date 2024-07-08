@@ -9,7 +9,8 @@ import {
 } from "@/lib/features/products/FetchDataSlice";
 import Categories from "@/lib/enums/ProductCategories";
 import { RootState } from "@/lib/store";
-import ProductCard from "@/components/homePage/ProductCard";
+import ProductCard from "@/components/displayProducts/ProductCard";
+import InfoModal from "@/components/infoModal/InfoModal";
 
 const CategoryPage = ({ params }: { params: { category: string[] } }) => {
   const router = useRouter();
@@ -54,6 +55,7 @@ const CategoryPage = ({ params }: { params: { category: string[] } }) => {
         ))}
         {loading && <p>Loading more products...</p>}
       </div>
+      <InfoModal />
     </div>
   );
 };

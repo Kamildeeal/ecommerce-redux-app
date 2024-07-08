@@ -1,5 +1,5 @@
 "use client";
-import DisplayProducts from "@/components/homePage/Display";
+import DisplayProducts from "@/components/displayProducts/Display";
 import InfoModal from "@/components/infoModal/InfoModal";
 
 export default function HomePageShop() {

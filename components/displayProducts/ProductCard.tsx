@@ -40,6 +40,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
     dispatch(setCurrentProduct(product));
     dispatch(openModal());
   };
+
   const LargeTooltip = styled(({ className, ...props }: TooltipProps) => (
     <Tooltip {...props} classes={{ popper: className }} />
   ))(() => ({
@@ -50,7 +51,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
 
   return (
     <div className="w-[240px] lg:w-[280px] bg-white border border-red-200 rounded-lg shadow-md overflow-hidden flex flex-col items-center">
-      <LargeTooltip title="Click to see details" placement="right-start" arrow>
+      <LargeTooltip title="Click to see preview" placement="right-start" arrow>
         <div onClick={() => handleDisplayInModal()} className="cursor-pointer">
           <ProductImage src={product.images[0]} alt={product.title} />
         </div>

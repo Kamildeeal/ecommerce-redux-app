@@ -5,7 +5,7 @@ import NavbarCartIcon from "./headerCompontents/NavbarCartIcon";
 import { closeModal } from "@/lib/features/modal/ModalSlice";
 import { useAppDispatch } from "@/lib/hookts";
 import { HiMenu } from "react-icons/hi";
-import CategoriesModal from "@/components/categories/CategoriesModal";
+import CategoriesModal from "@/components/categoriesModal/CategoriesModal";
 
 export default function Header() {
   const [openCategories, setOpenCategories] = useState<boolean>(false);
