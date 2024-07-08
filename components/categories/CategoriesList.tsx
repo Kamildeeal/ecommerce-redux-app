@@ -1,24 +1,36 @@
 import React from "react";
+import {
+  setCategoryFilter,
+  sortProductsByCategory,
+} from "@/lib/features/products/FetchDataSlice";
+import { useAppDispatch } from "@/lib/hookts";
+import Categories from "@/lib/enums/ProductCategories";
+import CategoryItem from "./CategoryListItem";
 
-const CategoriesList = () => {
+const CategoriesList = ({
+  setOpenCategories,
+}: {
+  setOpenCategories: () => void;
+}) => {
+  const dispatch = useAppDispatch();
+
+  const handleCategoryChange = (category: string) => {
+    dispatch(setCategoryFilter(category));
+    dispatch(sortProductsByCategory());
+    setOpenCategories();
+  };
+
   return (
     <div>
-      <div className="text-black flex justify-between my-2 py-4 pl-4 pr-2 rounded-md text-xl hover:bg-slate-100 cursor-pointer">
-        <p className="hover:underline cursor-pointer">Beauty</p>
-        <span> → </span>
-      </div>
-      <div className="text-black flex justify-between my-2 py-4 pl-4 pr-2 rounded-md text-xl hover:bg-slate-100 cursor-pointer">
-        <p className="hover:underline cursor-pointer">Fragrances</p>
-        <span> → </span>
-      </div>
-      <div className="text-black flex justify-between my-2 py-4 pl-4 pr-2 rounded-md text-xl hover:bg-slate-100 cursor-pointer">
-        <p className="hover:underline cursor-pointer">Furniture</p>
-        <span> → </span>
-      </div>
-      <div className="text-black flex justify-between my-2 py-4 pl-4 pr-2 rounded-md text-xl hover:bg-slate-100 cursor-pointer">
-        <p className="hover:underline cursor-pointer">Groceries</p>
-        <span> → </span>
-      </div>
+      {Object.values(Categories).map((category) => (
+        <CategoryItem
+          key={category}
+          category={category}
+          onClick={() => handleCategoryChange(category)}
+        >
+          <span> → </span>
+        </CategoryItem>
+      ))}
     </div>
   );
 };

@@ -33,7 +33,9 @@ interface FetchData {
 export const fetchProducts = createAsyncThunk(
   "products/fetchProducts",
   async () => {
-    const response = await axios.get("https://dummyjson.com/products");
+    const response = await axios.get(
+      "https://dummyjson.com/products?limit=100"
+    );
     return response.data.products;
   }
 );
@@ -44,7 +46,7 @@ const initialState: FetchData = {
   loading: true,
   products: [],
   filteredProducts: [],
-  categoryFilter: "allItems",
+  categoryFilter: "fragrances",
   error: null,
 };
 

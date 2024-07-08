@@ -3,6 +3,13 @@ enum Categories {
   Furniture = "furniture",
   Groceries = "groceries",
   Fragrances = "fragrances",
+  HomeDecorations = "home-decoration",
+  KitchenAccesories = "kitchen-accessories",
+  Laptops = "laptops",
+  MenShirts = "mens-shirts",
+  MenShoes = "mens-shoes",
+  MenWatches = "men-watches",
+  MonbileAccesories = "mobile-accessories",
   AllItems = "allItems",
 }
 

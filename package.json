@@ -22,7 +22,8 @@
     "react-hot-toast": "^2.4.1",
     "react-rating-stars-component": "^2.2.0",
     "react-redux": "^9.1.2",
-    "react-stars": "^2.2.5"
+    "react-stars": "^2.2.5",
+    "tailwind-scrollbar": "^3.1.0"
   },
   "devDependencies": {
     "@types/node": "^20",
