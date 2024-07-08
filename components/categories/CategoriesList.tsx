@@ -3,9 +3,11 @@ import {
   setCategoryFilter,
   sortProductsByCategory,
 } from "@/lib/features/products/FetchDataSlice";
-import { useAppDispatch } from "@/lib/hookts";
+import { useAppDispatch, useAppSelector } from "@/lib/hookts";
 import Categories from "@/lib/enums/ProductCategories";
 import CategoryItem from "./CategoryListItem";
+import Link from "next/link";
+import { RootState } from "@/lib/store";
 
 const CategoriesList = ({
   setOpenCategories,
@@ -14,9 +16,9 @@ const CategoriesList = ({
 }) => {
   const dispatch = useAppDispatch();
 
-  const handleCategoryChange = (category: string) => {
-    dispatch(setCategoryFilter(category));
-    dispatch(sortProductsByCategory());
+  const handleCategoryChange = async (category: string) => {
+    await dispatch(setCategoryFilter(category));
+    await dispatch(sortProductsByCategory());
     setOpenCategories();
   };
 
@@ -26,7 +28,7 @@ const CategoriesList = ({
         <CategoryItem
           key={category}
           category={category}
-          onClick={() => handleCategoryChange(category)}
+          handleCategoryChange={() => handleCategoryChange(category)}
         >
           <span> → </span>
         </CategoryItem>

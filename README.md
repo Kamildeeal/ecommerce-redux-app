@@ -11,6 +11,18 @@ Integrate App Router Architecture (NextJs 14.2.4) and Redux. Based on the archit
 
 Single Page Applications (SPAs) don't execute on the server and therefore can define stores as global variables. SPAs don't need to worry about RSCs since they don't exist in SPAs. And singleton stores can store whatever data you want.
 
+## Todo
+
+- add routes
+- add animations to compontents
+- add loading anitmation
+- add category tooltip on the left side of screen
+- cache date
+- add/change hero section
+- change style of buttons
+
+add not-found.tsx compontent, add routing
+
 ### Getting Started
 
 First, run the development server:

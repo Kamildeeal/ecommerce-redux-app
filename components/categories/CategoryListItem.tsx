@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const capitalizeFirstLetter = (text: string) => {
@@ -6,23 +7,25 @@ const capitalizeFirstLetter = (text: string) => {
 
 const CategoryItem = ({
   category,
-  onClick,
+  handleCategoryChange,
   children,
 }: {
   category: string;
-  onClick: () => void;
+  handleCategoryChange: () => void;
   children: React.ReactNode;
 }) => {
   return (
-    <div
-      onClick={onClick}
-      className="text-black flex justify-between my-2 py-4 pl-4 pr-2 rounded-md text-xl hover:bg-slate-100 cursor-pointer"
-    >
-      <p className="hover:underline cursor-pointer">
-        {capitalizeFirstLetter(category)}
-      </p>
-      {children}
-    </div>
+    <Link href={category === "allItems" ? "/" : `/category/${category}`}>
+      <div
+        onClick={handleCategoryChange}
+        className="text-black flex justify-between my-2 py-4 pl-4 pr-2 rounded-md text-xl hover:bg-slate-100 cursor-pointer"
+      >
+        <p className="hover:underline cursor-pointer">
+          {capitalizeFirstLetter(category)}
+        </p>
+        {children}
+      </div>
+    </Link>
   );
 };
 
