@@ -3,11 +3,9 @@ import {
   setCategoryFilter,
   sortProductsByCategory,
 } from "@/lib/features/products/FetchDataSlice";
-import { useAppDispatch, useAppSelector } from "@/lib/hookts";
+import { useAppDispatch } from "@/lib/hookts";
 import Categories from "@/lib/enums/ProductCategories";
 import CategoryItem from "./CategoryListItem";
-import Link from "next/link";
-import { RootState } from "@/lib/store";
 
 const CategoriesList = ({
   setOpenCategories,
@@ -30,7 +28,7 @@ const CategoriesList = ({
           category={category}
           handleCategoryChange={() => handleCategoryChange(category)}
         >
-          <span> → </span>
+          <span className="ml-auto"> → </span>
         </CategoryItem>
       ))}
     </div>

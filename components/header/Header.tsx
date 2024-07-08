@@ -6,18 +6,20 @@ import { closeModal } from "@/lib/features/modal/ModalSlice";
 import { useAppDispatch } from "@/lib/hookts";
 import { HiMenu } from "react-icons/hi";
 import CategoriesModal from "@/components/categoriesModal/CategoriesModal";
+import ClosedModal from "../categoriesModal/ClosedModal";
 
 export default function Header() {
   const [openCategories, setOpenCategories] = useState<boolean>(false);
+
   const dispatch = useAppDispatch();
 
   const handleOpenModal = () => {
-    setOpenCategories(true);
+    setOpenCategories((prev) => !prev);
     document.body.classList.add("overflow-hidden");
   };
 
   const handleCloseModal = () => {
-    setOpenCategories(false);
+    setOpenCategories((prev) => !prev);
     document.body.classList.remove("overflow-hidden");
   };
 
@@ -28,7 +30,7 @@ export default function Header() {
     >
       <div className="z-50 container mx-auto flex justify-between items-center">
         <Link href="/" className="hover:text-gray-300">
-          <h1 className="text-3xl font-bold mr-8">KamShop</h1>
+          <h1 className="text-3xl font-bold mr-8 font-mono">KamStore</h1>
         </Link>
         <div className="ml-auto flex items-center flex-grow mx-4">
           <button
@@ -64,8 +66,13 @@ export default function Header() {
           <NavbarCartIcon />
         </nav>
       </div>
-      {openCategories && (
-        <CategoriesModal setOpenCategories={handleCloseModal} />
+      {openCategories ? (
+        <CategoriesModal
+          setOpenCategories={handleCloseModal}
+          openCategories={openCategories}
+        />
+      ) : (
+        <ClosedModal setOpenCategories={handleCloseModal} />
       )}
     </header>
   );

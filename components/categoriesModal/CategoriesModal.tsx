@@ -4,8 +4,10 @@ import CategoriesList from "./CategoriesList";
 
 const CategoriesModal = ({
   setOpenCategories,
+  openCategories,
 }: {
   setOpenCategories: () => void;
+  openCategories: boolean;
 }) => {
   const categories = useAppSelector((state) => state.products.products);
 
