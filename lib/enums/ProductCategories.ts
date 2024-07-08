@@ -8,7 +8,7 @@ enum Categories {
   Laptops = "laptops",
   MenShirts = "mens-shirts",
   MenShoes = "mens-shoes",
-  MenWatches = "men-watches",
+  MenWatches = "mens-watches",
   MonbileAccesories = "mobile-accessories",
   AllItems = "allItems",
 }

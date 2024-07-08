@@ -13,9 +13,10 @@ Single Page Applications (SPAs) don't execute on the server and therefore can de
 
 ## Todo
 
-- add routes
+- add routes to products
 - add animations to compontents
 - add loading anitmation
+- change ugly toast
 - add category tooltip on the left side of screen
 - cache date
 - add/change hero section

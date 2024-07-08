@@ -5,6 +5,7 @@ import { useAppDispatch, useAppSelector } from "@/lib/hookts";
 import {
   setCategoryFilter,
   fetchProducts,
+  sortProductsByCategory,
 } from "@/lib/features/products/FetchDataSlice";
 import Categories from "@/lib/enums/ProductCategories";
 import { RootState } from "@/lib/store";
@@ -18,20 +19,25 @@ const CategoryPage = ({ params }: { params: { category: string[] } }) => {
   );
 
   useEffect(() => {
-    dispatch(fetchProducts());
-  }, [dispatch]);
-
-  useEffect(() => {
     const category = params.category[0];
     if (
       category &&
       Object.values(Categories).includes(category as Categories)
     ) {
-      dispatch(setCategoryFilter(category));
+      if (filteredProducts.length === 0) {
+        dispatch(fetchProducts()).then((action) => {
+          if (action.type === "products/fetchProducts/fulfilled") {
+            dispatch(setCategoryFilter(category));
+            dispatch(sortProductsByCategory());
+          }
+        });
+      } else {
+        dispatch(setCategoryFilter(category));
+      }
     } else {
       notFound();
     }
-  }, [params.category, dispatch]);
+  }, [params.category, dispatch, filteredProducts.length]);
 
   if (loading) {
     return <div>Loading...</div>;
