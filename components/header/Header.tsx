@@ -14,12 +14,12 @@ export default function Header() {
   const dispatch = useAppDispatch();
 
   const handleOpenModal = () => {
-    setOpenCategories(true);
+    setOpenCategories((prev) => !prev);
     document.body.classList.add("overflow-hidden");
   };
 
   const handleCloseModal = () => {
-    setOpenCategories(false);
+    setOpenCategories((prev) => !prev);
     document.body.classList.remove("overflow-hidden");
   };
 
@@ -47,7 +47,7 @@ export default function Header() {
       <div className="z-50 container mx-auto flex justify-between items-center">
         <Link href="/" className="hover:text-gray-300">
           <h1
-            className={`mr-8 font-mono font-bold transition-transform duration-400 text-5xl ${
+            className={`mr-8 font-climate-crisis font-bold transition-transform duration-400 text-5xl ${
               isScrolled ? "scale-75" : "scale-100"
             }`}
           >
