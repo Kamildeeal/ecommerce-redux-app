@@ -15,6 +15,7 @@ Single Page Applications (SPAs) don't execute on the server and therefore can de
 
 - add routes to products
 - add animations to compontents
+- decrease logo size while scroling down
 - add loading anitmation
 - change ugly toast
 - add category tooltip on the left side of screen
