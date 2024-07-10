@@ -6,6 +6,7 @@ import { RootState } from "@/lib/store";
 import Image from "next/image";
 import AddProductButton from "../buttons/AddProduct";
 import ReferenceComments from "./ReferenceComments";
+import Link from "next/link";
 
 const InfoModal = () => {
   const dispatch = useAppDispatch();
@@ -43,6 +44,16 @@ const InfoModal = () => {
                 />
               </div>
             </div>
+            <Link
+              href={{
+                pathname: `/product/${currentProduct.title
+                  .replace(/\s+/g, "-")
+                  .toLowerCase()}`,
+                query: { productId: `${currentProduct.id}` },
+              }}
+            >
+              <div className="text-center mx-auto">MORE DETIALS</div>
+            </Link>
             <div className="p-5 flex-1 flex flex-col justify-end">
               <h5 className="text-base lg:text-xl font-semibold tracking-tight text-gray-900 mb-auto">
                 {currentProduct.title}

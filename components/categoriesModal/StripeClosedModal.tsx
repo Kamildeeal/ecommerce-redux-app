@@ -21,9 +21,9 @@ const ClosedModal = ({
           {Object.values(Categories).map((category) => {
             const IconComponent = categoryIcons[category as Categories];
             return (
-              <div key={category} className="my-2 mx-auto">
+              <div key={category} className="my-1 mx-auto">
                 <div className="p-2 rounded-full cursor-pointer hover:bg-gray-300 transition-all duration-300">
-                  <IconComponent className="text-[1.7rem] text-black" />
+                  <IconComponent className="text-[1.5rem] text-black" />
                 </div>
               </div>
             );

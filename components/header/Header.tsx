@@ -6,7 +6,7 @@ import { closeModal } from "@/lib/features/modal/ModalSlice";
 import { useAppDispatch } from "@/lib/hookts";
 import { HiMenu } from "react-icons/hi";
 import CategoriesModal from "@/components/categoriesModal/CategoriesModal";
-import ClosedModal from "../categoriesModal/ClosedModal";
+import ClosedModal from "../categoriesModal/StripeClosedModal";
 
 export default function Header() {
   const [openCategories, setOpenCategories] = useState<boolean>(false);

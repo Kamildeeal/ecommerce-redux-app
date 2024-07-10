@@ -6,6 +6,10 @@ export interface Product {
   description: string;
   category: string;
   rating: number;
+  brand: string | null;
+  availabilityStatus: string;
+  warrantyInformation: string;
+  shippingInformation: string;
   reviews: Review[];
 }
 
