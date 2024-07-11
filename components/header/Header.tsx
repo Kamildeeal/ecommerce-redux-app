@@ -7,6 +7,7 @@ import { useAppDispatch } from "@/lib/hookts";
 import { HiMenu } from "react-icons/hi";
 import CategoriesModal from "@/components/categoriesModal/CategoriesModal";
 import ClosedModal from "../categoriesModal/StripeClosedModal";
+import { AnimatePresence } from "framer-motion";
 
 export default function Header() {
   const [openCategories, setOpenCategories] = useState<boolean>(false);
@@ -90,14 +91,16 @@ export default function Header() {
           <NavbarCartIcon />
         </nav>
       </div>
-      {openCategories ? (
-        <CategoriesModal
-          setOpenCategories={handleCloseModal}
-          openCategories={openCategories}
-        />
-      ) : (
-        <ClosedModal setOpenCategories={handleCloseModal} />
-      )}
+      <AnimatePresence>
+        {openCategories ? (
+          <CategoriesModal
+            handleCloseModal={handleCloseModal}
+            openCategories={openCategories}
+          />
+        ) : (
+          <ClosedModal handleOpenModal={handleOpenModal} />
+        )}
+      </AnimatePresence>
     </header>
   );
 }

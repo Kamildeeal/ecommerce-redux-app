@@ -4,10 +4,10 @@ import CategoriesList from "./CategoriesList";
 import { motion } from "framer-motion";
 
 const CategoriesModal = ({
-  setOpenCategories,
+  handleCloseModal,
   openCategories,
 }: {
-  setOpenCategories: () => void;
+  handleCloseModal: () => void;
   openCategories: boolean;
 }) => {
   return (
@@ -15,13 +15,13 @@ const CategoriesModal = ({
 
     <div className="overflow-auto">
       <div
-        onClick={setOpenCategories}
+        onClick={handleCloseModal}
         className="z-[30] fixed top-0 left-0 w-[100vw] h-[100vh] bg-opacity-35 bg-slate-900"
       ></div>
       <div className="z-[35] fixed top-0 left-0 w-[320px] h-[95vh] bg-white border-l-2 border-gray-800 rounded-r-xl my-[28px]">
         <div className="py-6 px-6 flex flex-col h-full">
           <button
-            onClick={setOpenCategories}
+            onClick={handleCloseModal}
             className="text-red-500 text-xl text-end"
           >
             ✖️
@@ -30,7 +30,7 @@ const CategoriesModal = ({
           <span className="bg-black h-[2px] w-full my-8 text-black"></span>
           <div className="text-black text-2xl font-semibold">Categories:</div>
           <div className="flex-1 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-200">
-            <CategoriesList setOpenCategories={setOpenCategories} />
+            <CategoriesList handleCloseModal={handleCloseModal} />
           </div>
         </div>
       </div>

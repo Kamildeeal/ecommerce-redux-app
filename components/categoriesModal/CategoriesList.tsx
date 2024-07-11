@@ -8,16 +8,16 @@ import Categories from "@/lib/enums/ProductCategories";
 import CategoryItem from "./CategoryListItem";
 
 const CategoriesList = ({
-  setOpenCategories,
+  handleCloseModal,
 }: {
-  setOpenCategories: () => void;
+  handleCloseModal: () => void;
 }) => {
   const dispatch = useAppDispatch();
 
   const handleCategoryChange = async (category: string) => {
     await dispatch(setCategoryFilter(category));
     await dispatch(sortProductsByCategory());
-    setOpenCategories();
+    handleCloseModal();
   };
 
   return (
