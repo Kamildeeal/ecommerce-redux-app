@@ -8,7 +8,7 @@ import AddProductButton from "../buttons/AddProduct";
 import ReferenceComments from "./ReferenceComments";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
-import { menuSlide } from "@/app/styles/animations/anim";
+import { menuSlide } from "@/app/styles/animations/animateVariants";
 import Curve from "./Curve";
 
 const InfoModal = () => {
