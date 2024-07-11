@@ -7,8 +7,6 @@ import { fetchProducts } from "@/lib/features/products/FetchDataSlice";
 import Hero from "../Hero";
 import ToastContainer from "./ToastContainer";
 import ProductGrid from "./ProductGrid";
-import { Product } from "@/lib/types/types";
-import Link from "next/link";
 
 const ProductList = () => {
   const dispatch = useAppDispatch();

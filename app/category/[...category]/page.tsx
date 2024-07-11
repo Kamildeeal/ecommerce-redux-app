@@ -15,6 +15,7 @@ import Link from "next/link";
 import { BsFillHouseDownFill } from "react-icons/bs";
 import { TbMathGreater } from "react-icons/tb";
 import { AnimatePresence } from "framer-motion";
+import ClipLoader from "react-spinners/ClipLoader";
 
 const CategoryPage = ({ params }: { params: { category: string[] } }) => {
   const router = useRouter();
@@ -45,7 +46,11 @@ const CategoryPage = ({ params }: { params: { category: string[] } }) => {
   }, [params.category, dispatch, filteredProducts.length]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <ClipLoader color={"black"} loading={loading} size={150} />
+      </div>
+    );
   }
 
   return (
@@ -54,9 +59,9 @@ const CategoryPage = ({ params }: { params: { category: string[] } }) => {
         <Link href={"/"}>
           <BsFillHouseDownFill className="text-2xl" />{" "}
         </Link>
-        <TbMathGreater className="text-xl" />{" "}
+        <TbMathGreater className="text-base" />{" "}
         <Link href={`/category/${params.category}`}>
-          <span className="underline hover:no-underline cursor-pointer text-lg">
+          <span className="underline hover:no-underline cursor-pointer text-lg font-semibold">
             {params.category}
           </span>
         </Link>

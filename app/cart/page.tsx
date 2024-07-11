@@ -33,6 +33,7 @@ export default function cartPage() {
                     src={product.image[0]}
                     alt={product.title}
                     fill
+                    sizes="(min-width: 1024px) 260px, 200px"
                     className="object-contain h-full w-full"
                   />
                 </div>

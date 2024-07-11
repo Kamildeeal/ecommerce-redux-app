@@ -61,6 +61,7 @@ const InfoModal = () => {
                         src={currentProduct.images[0]}
                         alt={currentProduct.title}
                         fill
+                        sizes="(min-width: 1024px) 260px, 200px"
                         className="object-contain h-full w-full"
                       />
                     </div>
@@ -90,10 +91,10 @@ const InfoModal = () => {
                     <div className="mt-4 mx-auto">
                       <AddProductButton
                         id={currentProduct.id}
-                        title={""}
-                        image={[]}
-                        description={""}
-                        price={0}
+                        title={currentProduct.title}
+                        image={currentProduct.images}
+                        description={currentProduct.description}
+                        price={currentProduct.price}
                       />
                     </div>
                   </div>

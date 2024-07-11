@@ -12,7 +12,6 @@ export default function HomePageShop() {
           <div className="container mx-auto">
             <DisplayProducts />
           </div>
-          {/* next time use mode="wait" */}
           <AnimatePresence>
             <InfoModal />
           </AnimatePresence>

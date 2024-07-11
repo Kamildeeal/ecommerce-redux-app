@@ -50,14 +50,14 @@ const ProductCard = ({ product }: ProductCardProps) => {
   }));
 
   return (
-    <div className="w-[240px] lg:w-[280px] bg-white border border-red-200 rounded-lg shadow-md overflow-hidden flex flex-col items-center">
+    <div className="w-[240px] lg:w-[280px] bg-white border border-red-200 rounded-lg shadow-md overflow-hidden flex flex-col items-center hover:bg-gray-100  hover:border-gray-400">
       <LargeTooltip title="Click to see preview" placement="right-start" arrow>
         <div onClick={() => handleDisplayInModal()} className="cursor-pointer">
           <ProductImage src={product.images[0]} alt={product.title} />
         </div>
       </LargeTooltip>
-      <div className="p-5 flex-1 flex flex-col justify-end">
-        <h5 className="text-base lg:text-xl font-semibold tracking-tight text-gray-900 mb-auto">
+      <div className="p-5 flex-1 flex flex-col justify-end max-w-[280px] w-full">
+        <h5 className="text-base lg:text-xl font-semibold tracking-tight text-gray-900 mb-auto mx-auto text-center">
           {product.title}
         </h5>
         <div className="flex items-center justify-between mt-2">

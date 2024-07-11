@@ -10,6 +10,7 @@ import {
   fetchProducts,
   loadMoreProducts,
 } from "@/lib/features/products/FetchDataSlice";
+import ClipLoader from "react-spinners/ClipLoader";
 
 interface ProductGridProps {
   products: Product[];
@@ -45,8 +46,8 @@ const ProductGrid = ({ products }: ProductGridProps) => {
 
   if (loading && displayedProducts.length === 0) {
     return (
-      <div className="flex justify-center text-center w-full items-center mx-auto">
-        Loading...
+      <div className="flex items-center justify-center min-h-screen">
+        <ClipLoader color={"black"} loading={loading} size={150} />
       </div>
     );
   }
@@ -61,7 +62,11 @@ const ProductGrid = ({ products }: ProductGridProps) => {
       {productsToDisplay.map((product) => (
         <ProductCard key={product.id} product={product} />
       ))}
-      {loading && <p>Loading more products...</p>}
+      {loading && (
+        <div className="flex items-center justify-center min-h-screen">
+          <ClipLoader color={"black"} loading={loading} size={150} />
+        </div>
+      )}
     </div>
   );
 };

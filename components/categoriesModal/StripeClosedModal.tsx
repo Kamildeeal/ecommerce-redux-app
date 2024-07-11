@@ -29,8 +29,9 @@ const ClosedModal = ({ handleOpenModal }: { handleOpenModal: () => void }) => {
                 initial="initial"
                 animate="enter"
                 exit="exit"
+                key={category}
               >
-                <div key={category} className="my-1 mx-auto">
+                <div className="my-1 mx-auto">
                   <div className="p-2 rounded-full cursor-pointer hover:bg-gray-300 transition-all duration-300">
                     <IconComponent className="text-[1.5rem] text-black mx-auto" />
                   </div>

@@ -13,6 +13,7 @@ import { BsFillHouseDownFill } from "react-icons/bs";
 import { TbMathGreater } from "react-icons/tb";
 import Link from "next/link";
 import RatingComponent from "@/utils/ReactStars";
+import ClipLoader from "react-spinners/ClipLoader";
 
 export default function ProductPage({ params }: { params: { title: string } }) {
   const dispatch = useAppDispatch();
@@ -22,6 +23,7 @@ export default function ProductPage({ params }: { params: { title: string } }) {
   const searchParams = useSearchParams();
   const productId = searchParams.get("productId");
   const [product, setProduct] = useState<Product | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -38,19 +40,24 @@ export default function ProductPage({ params }: { params: { title: string } }) {
       } else {
         notFound();
       }
+      setLoading(false);
     };
 
     fetchData();
   }, [productId, dispatch, products]);
 
-  if (!product) {
-    return <div>Loading...</div>;
+  if (!product || loading) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <ClipLoader color={"black"} loading={loading} size={150} />
+      </div>
+    );
   }
 
   return (
     <div>
       <div className="text-center text-2xl font-bold bg-red-200 flex items-center justify-center font-climate-crisis">
-        BIG SALES!
+        BIG SALES! -10%!
       </div>
       <div className="w-full max-w-[1480px] mx-auto flex px-20 my-10">
         <div className="flex-1 px-4">
@@ -58,9 +65,9 @@ export default function ProductPage({ params }: { params: { title: string } }) {
             <Link href={"/"}>
               <BsFillHouseDownFill className="text-2xl" />{" "}
             </Link>
-            <TbMathGreater className="text-2xl" />{" "}
+            <TbMathGreater className="text-lg" />{" "}
             <Link href={`/category/${product.category}`}>
-              <span className="underline hover:no-underline cursor-pointer text-lg">
+              <span className="underline hover:no-underline cursor-pointer text-lg font-semibold">
                 {product.category}
               </span>
             </Link>
@@ -85,6 +92,7 @@ export default function ProductPage({ params }: { params: { title: string } }) {
                 alt={product.title}
                 fill
                 className="object-contain h-full w-full"
+                sizes="(min-width: 1024px) 260px, 200px"
               />
             </div>
           </div>
@@ -143,52 +151,3 @@ export default function ProductPage({ params }: { params: { title: string } }) {
     </div>
   );
 }
-
-// <div className="w-full h-14 bg-red-300">
-//   <div className="px-14">
-//     <div>
-//       <h5 className="text-base lg:text-xl font-semibold tracking-tight text-gray-900 mb-auto">
-//         {product.title}
-//       </h5>
-//       <div className="mx-auto w-[200px] h-[200px] lg:min-w-[260px] lg:h-[260px]">
-//         <div className="relative h-full w-full">
-//           <Image
-//             src={product.images[0]}
-//             alt={product.title}
-//             fill
-//             className="object-contain h-full w-full"
-//           />
-//         </div>
-//       </div>
-//     </div>
-
-//     <div className="p-5 flex-1 flex flex-col justify-end">
-//       <div className="flex items-center justify-between mt-2">
-//         <span className="text-xl lg:text-xl text-gray-900">
-//           ${product.price}
-//         </span>
-//       </div>
-//       <div className="mt-8 font-semibold text-2xl">
-//         {product.description}
-//       </div>
-//       <div className="mt-4 mx-auto">
-//         <AddProductButton
-//           id={product.id}
-//           title={""}
-//           image={[]}
-//           description={""}
-//           price={0}
-//         />
-//       </div>
-//     </div>
-//     <p>Rate: {product.rating}</p>
-
-//     <p>Rate: {product.availabilityStatus}</p>
-//     <p>{product.warrantyInformation}</p>
-//     <p>{product.availabilityStatus}</p>
-//     <p className="text-xl text-center my-6 font-serif semibolld">
-//       Product Reviews
-//     </p>
-//     <ReferenceComments currentProduct={product} />
-//   </div>
-// </div>
