@@ -2,6 +2,8 @@ import { useAppSelector } from "@/lib/hookts";
 import React from "react";
 import categoryIcons from "./CategoryIcons";
 import Categories from "@/lib/enums/ProductCategories";
+import { AnimatePresence, motion } from "framer-motion";
+import { categoriesSlide } from "@/app/styles/animations/anim";
 
 const ClosedModal = ({
   setOpenCategories,

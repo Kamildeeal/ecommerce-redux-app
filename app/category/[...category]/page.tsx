@@ -11,6 +11,10 @@ import Categories from "@/lib/enums/ProductCategories";
 import { RootState } from "@/lib/store";
 import ProductCard from "@/components/displayProducts/ProductCard";
 import InfoModal from "@/components/infoModal/InfoModal";
+import Link from "next/link";
+import { BsFillHouseDownFill } from "react-icons/bs";
+import { TbMathGreater } from "react-icons/tb";
+import { AnimatePresence } from "framer-motion";
 
 const CategoryPage = ({ params }: { params: { category: string[] } }) => {
   const router = useRouter();
@@ -45,17 +49,27 @@ const CategoryPage = ({ params }: { params: { category: string[] } }) => {
   }
 
   return (
-    <div>
-      <h2 className="text-3xl text-center">
-        You are currently looking at &#62; {categoryFilter}
-      </h2>
+    <div className="w-full max-w-[1480px] mx-auto flex flex-col px-16 my-10">
+      <div className="flex gap-4 items-center text-gray-500 mb-6">
+        <Link href={"/"}>
+          <BsFillHouseDownFill className="text-2xl" />{" "}
+        </Link>
+        <TbMathGreater className="text-xl" />{" "}
+        <Link href={`/category/${params.category}`}>
+          <span className="underline hover:no-underline cursor-pointer text-lg">
+            {params.category}
+          </span>
+        </Link>
+      </div>
       <div className="grid justify-items-center sm:justify-normal grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-col-3 xl:grid-cols-4 lg:px-12 gap-6 py-6 px-6">
         {filteredProducts.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
         {loading && <p>Loading more products...</p>}
       </div>
-      <InfoModal />
+      <AnimatePresence>
+        <InfoModal />
+      </AnimatePresence>
     </div>
   );
 };

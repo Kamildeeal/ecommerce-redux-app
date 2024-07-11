@@ -1,6 +1,7 @@
 "use client";
 import DisplayProducts from "@/components/displayProducts/Display";
 import InfoModal from "@/components/infoModal/InfoModal";
+import { AnimatePresence } from "framer-motion";
 
 export default function HomePageShop() {
   return (
@@ -11,7 +12,10 @@ export default function HomePageShop() {
           <div className="container mx-auto">
             <DisplayProducts />
           </div>
-          <InfoModal />
+          {/* next time use mode="wait" */}
+          <AnimatePresence>
+            <InfoModal />
+          </AnimatePresence>
         </section>
       </div>
     </>

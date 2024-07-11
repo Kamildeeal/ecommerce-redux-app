@@ -8,6 +8,7 @@ import { Climate_Crisis } from "next/font/google";
 
 import Footer from "@/components/Footer";
 import TopLinksSection from "@/components/header/headerCompontents/TopLinksSection";
+import { AnimatePresence } from "framer-motion";
 
 const inter = Inter({ subsets: ["latin"] });
 

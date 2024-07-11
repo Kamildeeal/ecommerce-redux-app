@@ -1,6 +1,7 @@
 import { useAppSelector } from "@/lib/hookts";
 import React from "react";
 import CategoriesList from "./CategoriesList";
+import { motion } from "framer-motion";
 
 const CategoriesModal = ({
   setOpenCategories,
@@ -9,10 +10,9 @@ const CategoriesModal = ({
   setOpenCategories: () => void;
   openCategories: boolean;
 }) => {
-  const categories = useAppSelector((state) => state.products.products);
-
   return (
     // desktop tablet Modal - big devices
+
     <div className="overflow-auto">
       <div
         onClick={setOpenCategories}

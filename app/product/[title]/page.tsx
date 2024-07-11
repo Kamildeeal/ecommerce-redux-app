@@ -9,6 +9,10 @@ import ReferenceComments from "@/components/infoModal/ReferenceComments";
 import AddProductButton from "@/components/buttons/AddProduct";
 import Image from "next/image";
 import { FaDotCircle } from "react-icons/fa";
+import { BsFillHouseDownFill } from "react-icons/bs";
+import { TbMathGreater } from "react-icons/tb";
+import Link from "next/link";
+import RatingComponent from "@/utils/ReactStars";
 
 export default function ProductPage({ params }: { params: { title: string } }) {
   const dispatch = useAppDispatch();
@@ -50,8 +54,16 @@ export default function ProductPage({ params }: { params: { title: string } }) {
       </div>
       <div className="w-full max-w-[1480px] mx-auto flex px-20 my-10">
         <div className="flex-1 px-4">
-          <div className="text-base my-2 semidbold">
-            Raiting: {product.rating}
+          <div className="flex gap-4 items-center text-gray-500 mb-6">
+            <Link href={"/"}>
+              <BsFillHouseDownFill className="text-2xl" />{" "}
+            </Link>
+            <TbMathGreater className="text-2xl" />{" "}
+            <Link href={`/category/${product.category}`}>
+              <span className="underline hover:no-underline cursor-pointer text-lg">
+                {product.category}
+              </span>
+            </Link>
           </div>
           <div className=" text-2xl my-2 bold">{product.title}</div>
           {product.brand && (
@@ -60,7 +72,13 @@ export default function ProductPage({ params }: { params: { title: string } }) {
           <div className="my-2 text-lg semibold pr-4">
             {product.description}
           </div>
-          <div className="mx-auto sticky top-20 w-[200px] h-[200px] lg:min-w-[260px] lg:h-[260px]">
+          <div className="text-base my-2 semidbold flex gap-12">
+            <p className="font-sans text-base text-gray-600">
+              Raiting: {product.rating}
+            </p>{" "}
+            <RatingComponent rating={Math.round(product.rating * 2) / 2} />
+          </div>
+          <div className="mx-auto sticky top-40  w-[200px] h-[200px] lg:min-w-[260px] lg:h-[260px]">
             <div className="relative h-full w-full">
               <Image
                 src={product.images[0]}
@@ -74,7 +92,9 @@ export default function ProductPage({ params }: { params: { title: string } }) {
         <div className="flex-1 px-4">
           <div className="text-right">
             Cheapest price in 30 days:{" "}
-            <span className="line-through">{product.price * 1.1} $</span>
+            <span className="line-through">
+              {(product.price * 1.1).toFixed(2)} $
+            </span>
           </div>
           <div className="text-right text-5xl font-extrabold text-gray-900 mb-12">
             {product.price} $
