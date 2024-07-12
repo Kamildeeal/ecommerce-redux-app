@@ -8,7 +8,6 @@ import { Product } from "@/lib/types/types";
 import LoadingSpinner from "@/utils/LoadingSpinner";
 import ProductHeader from "@/components/productPage/ProductHeader";
 import ProductDetails from "@/components/productPage/ProductDetails";
-import ProductImage from "@/components/productPage/ProductImage";
 import ProductPriceAvailability from "@/components/productPage/ProductPriceAvailability";
 
 import ReferenceComments from "@/components/infoModal/ReferenceComments";
