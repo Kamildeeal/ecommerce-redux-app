@@ -18,7 +18,6 @@ import { AnimatePresence } from "framer-motion";
 import ClipLoader from "react-spinners/ClipLoader";
 
 const CategoryPage = ({ params }: { params: { category: string[] } }) => {
-  const router = useRouter();
   const dispatch = useAppDispatch();
   const { filteredProducts, categoryFilter, loading } = useAppSelector(
     (state: RootState) => state.products

@@ -136,10 +136,10 @@ export default function ProductPage({ params }: { params: { title: string } }) {
           <div>
             <AddProductButton
               id={product.id}
-              title={""}
-              image={[]}
-              description={""}
-              price={0}
+              title={product.title}
+              image={product.images}
+              description={product.description}
+              price={product.price}
             />{" "}
           </div>
           <p className="text-xl text-center my-6 font-serif semibolld">

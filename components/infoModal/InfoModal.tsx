@@ -10,6 +10,9 @@ import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { menuSlide } from "@/app/styles/animations/animateVariants";
 import Curve from "./Curve";
+import ClipLoader from "react-spinners/ClipLoader";
+import { useRouter } from "next/navigation";
+import CustomLink from "./CustomNavLink";
 
 const InfoModal = () => {
   const dispatch = useAppDispatch();
@@ -19,7 +22,17 @@ const InfoModal = () => {
   );
 
   const [isClosing, setIsClosing] = useState(false);
+  const [loading, setLoading] = useState(false);
 
+  const router = useRouter();
+
+  const handleClick = (e: any) => {
+    e.preventDefault();
+    setLoading(true);
+    router.push(
+      `/product/${currentProduct?.title.replace(/\s+/g, "-").toLowerCase()}`
+    );
+  };
   if (!modal || !currentProduct) {
     return null;
   }
@@ -33,7 +46,6 @@ const InfoModal = () => {
   };
 
   return (
-    //desktop tablet Modal - big devices
     <AnimatePresence>
       {!isClosing && (
         <div
@@ -66,16 +78,21 @@ const InfoModal = () => {
                       />
                     </div>
                   </div>
-                  <Link
-                    href={{
-                      pathname: `/product/${currentProduct.title
-                        .replace(/\s+/g, "-")
-                        .toLowerCase()}`,
-                      query: { productId: `${currentProduct.id}` },
-                    }}
-                  >
-                    <div className="text-center mx-auto">MORE DETIALS</div>
-                  </Link>
+                  <div onClick={() => setLoading(true)}>hello</div>
+                  <div onClick={() => setLoading(false)}>BYE</div>
+                  <div onClick={() => setLoading(true)}>
+                    <Link
+                      onClick={() => setLoading(true)}
+                      href={{
+                        pathname: `/product/${currentProduct.title
+                          .replace(/\s+/g, "-")
+                          .toLowerCase()}`,
+                        query: { productId: `${currentProduct.id}` },
+                      }}
+                    >
+                      <div className="text-center mx-auto">MORE DETAILS</div>
+                    </Link>
+                  </div>
                   <div className="p-5 flex-1 flex flex-col justify-end">
                     <h5 className="text-base lg:text-xl font-semibold tracking-tight text-gray-900 mb-auto">
                       {currentProduct.title}
@@ -107,6 +124,11 @@ const InfoModal = () => {
               <Curve />
             </div>
           </motion.div>
+          {loading && (
+            <div className="fixed inset-0 flex items-center justify-center bg-gray-300 bg-opacity-75 z-50">
+              <ClipLoader color={"red"} loading={loading} size={150} />
+            </div>
+          )}
         </div>
       )}
     </AnimatePresence>

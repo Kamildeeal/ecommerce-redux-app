@@ -9,6 +9,8 @@ import { Climate_Crisis } from "next/font/google";
 import Footer from "@/components/Footer";
 import TopLinksSection from "@/components/header/headerCompontents/TopLinksSection";
 import { AnimatePresence } from "framer-motion";
+import { Suspense } from "react";
+import Loading from "./product/[title]/loading";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -34,7 +36,9 @@ export default function RootLayout({
         <body className="flex flex-col min-h-screen">
           <TopLinksSection />
           <Header />
-          <div className="flex-grow">{children}</div>
+          <Suspense fallback={<Loading />}>
+            <div className="flex-grow">{children}</div>
+          </Suspense>
           <Footer />
         </body>
       </html>
