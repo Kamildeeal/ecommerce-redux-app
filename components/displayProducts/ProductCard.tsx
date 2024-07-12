@@ -14,6 +14,7 @@ import { setCurrentProduct } from "@/lib/features/products/ShowProductSlice";
 import { openModal } from "@/lib/features/modal/ModalSlice";
 import { styled } from "@mui/material/styles";
 import Tooltip, { TooltipProps, tooltipClasses } from "@mui/material/Tooltip";
+import RatingComponent from "@/utils/ReactStars";
 
 interface ProductCardProps {
   product: Product;
@@ -65,18 +66,25 @@ const ProductCard = ({ product }: ProductCardProps) => {
             ${product.price}
           </span>
         </div>
-        <div className="flex flex-col mt-4 items-center gap-2">
-          <div onClick={handleAddItemToast}>
+        <Tooltip
+          title={`Rating: ${product.rating.toFixed(1)}`}
+          placement="left-start"
+          arrow
+        >
+          <div>
+            <RatingComponent rating={Math.round(product.rating * 2) / 2} />
+          </div>
+        </Tooltip>
+        <div className="flex flex-col mt-4 items-center gap-2 w-full">
+          <div onClick={handleAddItemToast} className="w-full">
             <AddProductButton
               id={product.id}
               title={product.title}
               image={product.images}
               description={product.description}
               price={product.price}
+              buttonText="Add to Cart"
             />
-          </div>
-          <div onClick={handleRemoveItemToast}>
-            <FullClearItemButton id={product.id} />
           </div>
         </div>
       </div>

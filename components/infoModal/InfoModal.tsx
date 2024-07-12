@@ -13,6 +13,7 @@ import Curve from "./Curve";
 import ClipLoader from "react-spinners/ClipLoader";
 import { useRouter } from "next/navigation";
 import CustomLink from "./CustomNavLink";
+import MoreDetailsBtn from "../buttons/MoreDetailsBtn";
 
 const InfoModal = () => {
   const dispatch = useAppDispatch();
@@ -78,20 +79,11 @@ const InfoModal = () => {
                       />
                     </div>
                   </div>
-                  <div onClick={() => setLoading(true)}>hello</div>
-                  <div onClick={() => setLoading(false)}>BYE</div>
-                  <div onClick={() => setLoading(true)}>
-                    <Link
-                      onClick={() => setLoading(true)}
-                      href={{
-                        pathname: `/product/${currentProduct.title
-                          .replace(/\s+/g, "-")
-                          .toLowerCase()}`,
-                        query: { productId: `${currentProduct.id}` },
-                      }}
-                    >
-                      <div className="text-center mx-auto">MORE DETAILS</div>
-                    </Link>
+                  <div onClick={() => setLoading(true)} className="w-full">
+                    <MoreDetailsBtn
+                      buttonText="More details"
+                      currentProduct={currentProduct}
+                    />
                   </div>
                   <div className="p-5 flex-1 flex flex-col justify-end">
                     <h5 className="text-base lg:text-xl font-semibold tracking-tight text-gray-900 mb-auto">
@@ -105,13 +97,14 @@ const InfoModal = () => {
                     <div className="mt-8 font-semibold text-2xl">
                       {currentProduct.description}
                     </div>
-                    <div className="mt-4 mx-auto">
+                    <div className="mt-4 mx-auto w-full">
                       <AddProductButton
                         id={currentProduct.id}
                         title={currentProduct.title}
                         image={currentProduct.images}
                         description={currentProduct.description}
                         price={currentProduct.price}
+                        buttonText="Add to cart"
                       />
                     </div>
                   </div>

@@ -140,6 +140,7 @@ export default function ProductPage({ params }: { params: { title: string } }) {
               image={product.images}
               description={product.description}
               price={product.price}
+              buttonText="Add to Cart"
             />{" "}
           </div>
           <p className="text-xl text-center my-6 font-serif semibolld">
