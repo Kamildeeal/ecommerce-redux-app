@@ -15,8 +15,6 @@ export default function cartPage() {
 
   const { handleRemoveItemToast } = useHandleToats();
 
-  const ReactStars = dynamic(() => import("react-stars"), { ssr: false });
-
   return (
     <div className="flex mx-auto flex-col max-w-[1440px] w-full">
       <h1 className="text-3xl font-bold mb-4 text-center mt-4">Yours Cart</h1>
@@ -37,6 +35,7 @@ export default function cartPage() {
                     fill
                     sizes="(min-width: 1024px) 260px, 200px"
                     className="object-contain h-full w-full"
+                    priority
                   />
                 </div>
               </div>
@@ -50,7 +49,6 @@ export default function cartPage() {
                   <div onClick={handleRemoveItemToast}>
                     <FullClearItemButton id={product.id} />
                   </div>
-                  <ReactStars count={5} size={24} color2={"#ffd700"} />
                 </div>
               </div>
               <div>
@@ -83,7 +81,6 @@ export default function cartPage() {
               <div>SUMMARY PRODUCT COST</div>
               <div className="flex gap-10">
                 <FullClearItemButton id={1} />
-                <ReactStars count={5} size={24} color2={"#ffd700"} />
               </div>
             </div>
             <div className="flex flex-col justify-between">

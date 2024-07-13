@@ -5,7 +5,7 @@ import StoreProvider from "./StoreProvider";
 import Header from "@/components/header/Header";
 import Head from "next/head";
 import { Climate_Crisis } from "next/font/google";
-import Footer from "@/components/Footer";
+import Footer from "@/components/footer/Footer";
 import TopLinksSection from "@/components/header/headerCompontents/TopLinksSection";
 import { AnimatePresence } from "framer-motion";
 import { Suspense } from "react";

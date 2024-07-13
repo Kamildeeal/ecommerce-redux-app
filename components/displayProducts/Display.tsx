@@ -4,7 +4,7 @@ import React, { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "@/lib/hookts";
 import { RootState } from "@/lib/store";
 import { fetchProducts } from "@/lib/features/products/FetchDataSlice";
-import Hero from "../Hero";
+import Hero from "../hero/Hero";
 
 import ProductGrid from "./ProductGrid";
 

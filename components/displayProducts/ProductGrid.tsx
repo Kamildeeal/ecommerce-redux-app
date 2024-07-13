@@ -13,7 +13,7 @@ import ClipLoader from "react-spinners/ClipLoader";
 
 const ProductGrid = () => {
   const dispatch = useAppDispatch();
-  const { filteredProducts, categoryFilter, displayedProducts, loading, page } =
+  const { filteredProducts, categoryFilter, displayedProducts, loading } =
     useAppSelector((state: RootState) => state.products);
 
   useEffect(() => {
