@@ -9,9 +9,9 @@ import LoadingSpinner from "@/utils/LoadingSpinner";
 import ProductHeader from "@/components/productPage/ProductHeader";
 import ProductDetails from "@/components/productPage/ProductDetails";
 import ProductPriceAvailability from "@/components/productPage/ProductPriceAvailability";
-
 import ReferenceComments from "@/components/infoModal/ReferenceComments";
 import AddToCartButton from "@/components/buttons/AddProduct";
+import useHandleToats from "@/utils/useHandleToasts";
 
 export default function ProductPage({ params }: { params: { title: string } }) {
   const dispatch = useAppDispatch();
@@ -22,6 +22,8 @@ export default function ProductPage({ params }: { params: { title: string } }) {
   const productId = searchParams.get("productId");
   const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
+
+  const { handleAddItemToast } = useHandleToats();
 
   const fetchData = async () => {
     if (products.length === 0) {
@@ -53,14 +55,16 @@ export default function ProductPage({ params }: { params: { title: string } }) {
         <ProductDetails product={product} />
         <div className="flex-1 px-4 ml-8">
           <ProductPriceAvailability product={product} />
-          <AddToCartButton
-            id={product.id}
-            title={product.title}
-            image={product.images}
-            description={product.description}
-            price={product.price}
-            buttonText="Add to Cart"
-          />
+          <div onClick={handleAddItemToast}>
+            <AddToCartButton
+              id={product.id}
+              title={product.title}
+              image={product.images}
+              description={product.description}
+              price={product.price}
+              buttonText="Add to Cart"
+            />
+          </div>
           <p className="text-xl text-center my-6 font-serif semibolld">
             Product Reviews
           </p>

@@ -5,12 +5,14 @@ import StoreProvider from "./StoreProvider";
 import Header from "@/components/header/Header";
 import Head from "next/head";
 import { Climate_Crisis } from "next/font/google";
-
 import Footer from "@/components/Footer";
 import TopLinksSection from "@/components/header/headerCompontents/TopLinksSection";
 import { AnimatePresence } from "framer-motion";
 import { Suspense } from "react";
 import Loading from "./product/[title]/loading";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import ToastCompontent from "@/utils/ToastCompontent";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -34,6 +36,7 @@ export default function RootLayout({
     <StoreProvider>
       <html lang="en" className={climateCrisis.variable}>
         <body className="flex flex-col min-h-screen">
+          <ToastCompontent />
           <TopLinksSection />
           <Header />
           <Suspense fallback={<Loading />}>

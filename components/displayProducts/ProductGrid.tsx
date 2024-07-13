@@ -2,7 +2,6 @@
 
 import React, { useCallback, useEffect } from "react";
 import ProductCard from "./ProductCard";
-import { Product } from "@/lib/types/types";
 import { useAppDispatch, useAppSelector } from "@/lib/hookts";
 import { RootState } from "@/lib/store";
 import Categories from "@/lib/enums/ProductCategories";
@@ -12,11 +11,7 @@ import {
 } from "@/lib/features/products/FetchDataSlice";
 import ClipLoader from "react-spinners/ClipLoader";
 
-interface ProductGridProps {
-  products: Product[];
-}
-
-const ProductGrid = ({ products }: ProductGridProps) => {
+const ProductGrid = () => {
   const dispatch = useAppDispatch();
   const { filteredProducts, categoryFilter, displayedProducts, loading, page } =
     useAppSelector((state: RootState) => state.products);

@@ -1,18 +1,15 @@
 "use client";
 import { closeModal } from "@/lib/features/modal/ModalSlice";
 import { useAppDispatch, useAppSelector } from "@/lib/hookts";
-import React, { useState } from "react";
+import { useState } from "react";
 import { RootState } from "@/lib/store";
 import Image from "next/image";
 import AddProductButton from "../buttons/AddProduct";
 import ReferenceComments from "./ReferenceComments";
-import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { menuSlide } from "@/app/styles/animations/animateVariants";
 import Curve from "./Curve";
 import ClipLoader from "react-spinners/ClipLoader";
-import { useRouter } from "next/navigation";
-import CustomLink from "./CustomNavLink";
 import MoreDetailsBtn from "../buttons/MoreDetailsBtn";
 
 const InfoModal = () => {
@@ -25,19 +22,6 @@ const InfoModal = () => {
   const [isClosing, setIsClosing] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const router = useRouter();
-
-  const handleClick = (e: any) => {
-    e.preventDefault();
-    setLoading(true);
-    router.push(
-      `/product/${currentProduct?.title.replace(/\s+/g, "-").toLowerCase()}`
-    );
-  };
-  if (!modal || !currentProduct) {
-    return null;
-  }
-
   const handleCloseModal = () => {
     setIsClosing(true);
     setTimeout(() => {
@@ -46,6 +30,9 @@ const InfoModal = () => {
     }, 300);
   };
 
+  if (!modal || !currentProduct) {
+    return null;
+  }
   return (
     <AnimatePresence>
       {!isClosing && (

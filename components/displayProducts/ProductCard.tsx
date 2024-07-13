@@ -1,13 +1,6 @@
 import React from "react";
 import { useAppDispatch } from "@/lib/hookts";
-import {
-  showToastSuccess,
-  hideToastSuccess,
-  showToastRemove,
-  hideToastRemove,
-} from "@/lib/features/toast/ToastsSlice";
 import AddProductButton from "../buttons/AddProduct";
-import FullClearItemButton from "../buttons/FullClearItemButton";
 import ProductImage from "./ProductImage";
 import { Product } from "@/lib/types/types";
 import { setCurrentProduct } from "@/lib/features/products/ShowProductSlice";
@@ -15,6 +8,7 @@ import { openModal } from "@/lib/features/modal/ModalSlice";
 import { styled } from "@mui/material/styles";
 import Tooltip, { TooltipProps, tooltipClasses } from "@mui/material/Tooltip";
 import RatingComponent from "@/utils/ReactStars";
+import useHandleToats from "@/utils/useHandleToasts";
 
 interface ProductCardProps {
   product: Product;
@@ -23,19 +17,7 @@ interface ProductCardProps {
 const ProductCard = ({ product }: ProductCardProps) => {
   const dispatch = useAppDispatch();
 
-  const handleAddItemToast = () => {
-    dispatch(showToastSuccess());
-    setTimeout(() => {
-      dispatch(hideToastSuccess());
-    }, 2000);
-  };
-
-  const handleRemoveItemToast = () => {
-    dispatch(showToastRemove());
-    setTimeout(() => {
-      dispatch(hideToastRemove());
-    }, 2000);
-  };
+  const { handleAddItemToast } = useHandleToats();
 
   const handleDisplayInModal = () => {
     dispatch(setCurrentProduct(product));

@@ -8,10 +8,12 @@ import FullClearItemButton from "@/components/buttons/FullClearItemButton";
 import QuantityControlers from "@/components/cartPage/QuantityControlers";
 import OrderResume from "@/components/cartPage/OrderResume";
 import dynamic from "next/dynamic";
+import useHandleToats from "@/utils/useHandleToasts";
 
 export default function cartPage() {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const cartProducts = useAppSelector((state: RootState) => state.cartProducts);
+
+  const { handleRemoveItemToast } = useHandleToats();
 
   const ReactStars = dynamic(() => import("react-stars"), { ssr: false });
 
@@ -45,7 +47,9 @@ export default function cartPage() {
                   Summary cost: ${(product.price * product.quantity).toFixed(2)}
                 </div>
                 <div className="flex gap-10">
-                  <FullClearItemButton id={product.id} />
+                  <div onClick={handleRemoveItemToast}>
+                    <FullClearItemButton id={product.id} />
+                  </div>
                   <ReactStars count={5} size={24} color2={"#ffd700"} />
                 </div>
               </div>

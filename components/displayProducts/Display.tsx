@@ -5,12 +5,12 @@ import { useAppDispatch, useAppSelector } from "@/lib/hookts";
 import { RootState } from "@/lib/store";
 import { fetchProducts } from "@/lib/features/products/FetchDataSlice";
 import Hero from "../Hero";
-import ToastContainer from "./ToastContainer";
+
 import ProductGrid from "./ProductGrid";
 
 const ProductList = () => {
   const dispatch = useAppDispatch();
-  const { loading, products, error } = useAppSelector(
+  const { loading, error } = useAppSelector(
     (state: RootState) => state.products
   );
 
@@ -24,9 +24,8 @@ const ProductList = () => {
 
   return (
     <div className="relative">
-      <ToastContainer />
       <Hero />
-      <ProductGrid products={products} />
+      <ProductGrid />
     </div>
   );
 };

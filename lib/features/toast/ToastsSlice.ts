@@ -1,8 +1,10 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const initialState = {
-  addItemVisible: false,
-  removeItemVisible: false,
+  addItemToastVisible: false,
+  removeItemToastVisible: false,
 };
 
 const toastSlice = createSlice({
@@ -10,25 +12,30 @@ const toastSlice = createSlice({
   initialState,
   reducers: {
     showToastSuccess: (state) => {
-      state.addItemVisible = true;
-    },
-    hideToastSuccess: (state) => {
-      state.addItemVisible = false;
+      state.addItemToastVisible = true;
+      toast.success("Item added to cart successfully", {
+        position: "top-center",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
     },
     showToastRemove: (state) => {
-      state.removeItemVisible = true;
-    },
-    hideToastRemove: (state) => {
-      state.removeItemVisible = false;
+      state.removeItemToastVisible = true;
+      toast.error("Item removed from cart", {
+        position: "top-center",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
     },
   },
 });
 
-export const {
-  showToastRemove,
-  showToastSuccess,
-  hideToastRemove,
-  hideToastSuccess,
-} = toastSlice.actions;
+export const { showToastSuccess, showToastRemove } = toastSlice.actions;
 
 export default toastSlice.reducer;
