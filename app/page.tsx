@@ -6,14 +6,15 @@ import { AnimatePresence } from "framer-motion";
 export default function HomePageShop() {
   return (
     <>
-      <div>
-        <div className="container flex mx-auto justify-center max-w-[1540px] "></div>
-        <section className="py-10">
+      <div className="container flex mx-auto justify-center max-w-[1540px] w-full px-7">
+        <section className="py-10 px-4">
           <div className="container mx-auto">
             <DisplayProducts />
           </div>
           <AnimatePresence>
-            <InfoModal />
+            <div>
+              <InfoModal />
+            </div>
           </AnimatePresence>
         </section>
       </div>

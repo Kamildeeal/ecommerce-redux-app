@@ -10,9 +10,7 @@ import ProductGrid from "./ProductGrid";
 
 const ProductList = () => {
   const dispatch = useAppDispatch();
-  const { loading, error } = useAppSelector(
-    (state: RootState) => state.products
-  );
+  const { error } = useAppSelector((state: RootState) => state.products);
 
   useEffect(() => {
     dispatch(fetchProducts());
@@ -23,7 +21,7 @@ const ProductList = () => {
   }
 
   return (
-    <div className="relative">
+    <div>
       <Hero />
       <ProductGrid />
     </div>

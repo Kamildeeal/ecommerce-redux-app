@@ -17,12 +17,12 @@ export default function searchPage({ params }: { params: { query: string } }) {
   );
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col px-7">
       <h2 className="text-xl lg:text-3xl my-6 mx-auto font-bold">
         Search results for: {query} ({searchResults.length})
       </h2>
       <div className="xl:max-w-screen-xl mx-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 py-6">
+        <div className="grid m-2 justify-items-center sm:justify-normal grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-col-3 xl:grid-cols-4 lg:px-12 gap-6 py-6 px-6">
           {searchResults.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}

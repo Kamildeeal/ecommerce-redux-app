@@ -53,7 +53,7 @@ const ProductGrid = () => {
       : filteredProducts;
 
   return (
-    <div className="grid justify-items-center sm:justify-normal grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-col-3 xl:grid-cols-4 lg:px-12 gap-6 py-6 px-6">
+    <div className="grid justify-items-center sm:justify-normal grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-col-3 xl:grid-cols-4 gap-6 py-6">
       {productsToDisplay.map((product) => (
         <ProductCard key={product.id} product={product} />
       ))}

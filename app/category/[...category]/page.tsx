@@ -53,7 +53,7 @@ const CategoryPage = ({ params }: { params: { category: string[] } }) => {
   }
 
   return (
-    <div className="w-full max-w-[1480px] mx-auto flex flex-col px-16 my-10">
+    <div className="w-full max-w-[1480px] mx-auto flex flex-col px-10 my-10">
       <div className="flex gap-4 items-center text-gray-500 mb-6">
         <Link href={"/"}>
           <BsFillHouseDownFill className="text-2xl" />{" "}
@@ -65,15 +65,17 @@ const CategoryPage = ({ params }: { params: { category: string[] } }) => {
           </span>
         </Link>
       </div>
-      <div className="grid justify-items-center sm:justify-normal grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-col-3 xl:grid-cols-4 lg:px-12 gap-6 py-6 px-6">
+      <div className="grid m-2 justify-items-center sm:justify-normal grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-col-3 xl:grid-cols-4 lg:px-12 gap-6 py-6 px-6">
         {filteredProducts.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
         {loading && <p>Loading more products...</p>}
       </div>
-      <AnimatePresence>
-        <InfoModal />
-      </AnimatePresence>
+      <div>
+        <AnimatePresence>
+          <InfoModal />
+        </AnimatePresence>
+      </div>
     </div>
   );
 };

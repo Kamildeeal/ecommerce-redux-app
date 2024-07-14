@@ -17,6 +17,12 @@ const config: Config = {
       fontFamily: {
         "climate-crisis": ['"Climate Crisis"', "cursive"],
       },
+      screens: {
+        sm: "640px",
+        md: "860px",
+        lg: "1024px",
+        xl: "1440px",
+      },
     },
   },
   plugins: [require("tailwind-scrollbar")],
