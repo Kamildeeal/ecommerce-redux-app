@@ -1,26 +1,37 @@
-import React, { useRef } from "react";
-
-interface SearchInputProps {
-  handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
-}
+import Link from "next/link";
+import React, { useState, useRef } from "react";
+import { FaSearch } from "react-icons/fa";
+import { useRouter } from "next/navigation";
 
 const SearchInput = () => {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const inputRef = useRef<HTMLInputElement>(null);
+  const router = useRouter();
+
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const value = inputRef.current?.value;
-    if (value === "") return;
-    // Add your logic for form submission
+    if (!value) return;
+    router.push(`/search/${value}`);
+    inputRef.current.value = "";
   };
-  const inputRef = useRef<HTMLInputElement>(null);
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-[40vw] w-full mx-auto">
+    <form
+      onSubmit={onSubmit}
+      className="max-w-[40vw] w-full mx-auto relative overflow-hidden"
+    >
       <input
         type="text"
         placeholder="What are you searching for?"
-        className="w-full px-4 py-2 rounded text-black max-w-[40vw] mx-auto"
+        className="w-full px-4 py-2 rounded text-black pl-12"
         ref={inputRef}
       />
+      <button
+        type="submit"
+        className="ml-2 p-2 text-gray-800 rounded absolute left-0 bottom-[4px] hover:bg-gray-200"
+      >
+        <FaSearch />
+      </button>
     </form>
   );
 };

@@ -9,7 +9,7 @@ import CategoriesModal from "@/components/categoriesModal/CategoriesModal";
 import ClosedModal from "../categoriesModal/StripeClosedModal";
 import { AnimatePresence } from "framer-motion";
 import { RootState } from "@/lib/store";
-import UserSvg from "@/assets/icons/userSvg";
+import UserSvg from "@/assets/icons/UserSvg";
 import HeaderLogo from "./headerCompontents/HeaderLogo";
 import HeaderCategoriesBtn from "./headerCompontents/HeaderCategoriesBtn";
 import HeaderSearchInput from "./headerCompontents/HeaderSearchInput";
