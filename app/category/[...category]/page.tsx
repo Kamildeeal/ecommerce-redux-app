@@ -1,48 +1,20 @@
 "use client";
-import { useEffect } from "react";
-import { useRouter, notFound } from "next/navigation";
-import { useAppDispatch, useAppSelector } from "@/lib/hookts";
-import {
-  setCategoryFilter,
-  fetchProducts,
-  sortProductsByCategory,
-} from "@/lib/features/products/FetchDataSlice";
-import Categories from "@/lib/enums/ProductCategories";
-import { RootState } from "@/lib/store";
-import ProductCard from "@/components/displayProducts/ProductCard";
-import InfoModal from "@/components/infoModal/InfoModal";
 import Link from "next/link";
 import { BsFillHouseDownFill } from "react-icons/bs";
 import { TbMathGreater } from "react-icons/tb";
 import { AnimatePresence } from "framer-motion";
 import ClipLoader from "react-spinners/ClipLoader";
+import ProductCard from "@/components/displayProducts/ProductCard";
+import InfoModal from "@/components/infoModal/InfoModal";
+import useCategoryProducts from "@/utils/useCategoryProducts";
 
-const CategoryPage = ({ params }: { params: { category: string[] } }) => {
-  const dispatch = useAppDispatch();
-  const { filteredProducts, categoryFilter, loading } = useAppSelector(
-    (state: RootState) => state.products
-  );
+type CategoryPageProps = {
+  params: { category: string[] };
+};
 
-  useEffect(() => {
-    const category = params.category[0];
-    if (
-      category &&
-      Object.values(Categories).includes(category as Categories)
-    ) {
-      if (filteredProducts.length === 0) {
-        dispatch(fetchProducts()).then((action) => {
-          if (action.type === "products/fetchProducts/fulfilled") {
-            dispatch(setCategoryFilter(category));
-            dispatch(sortProductsByCategory());
-          }
-        });
-      } else {
-        dispatch(setCategoryFilter(category));
-      }
-    } else {
-      notFound();
-    }
-  }, [params.category, dispatch, filteredProducts.length]);
+const CategoryPage = ({ params }: CategoryPageProps) => {
+  const category = params.category[0];
+  const { filteredProducts, loading } = useCategoryProducts(category);
 
   if (loading) {
     return (

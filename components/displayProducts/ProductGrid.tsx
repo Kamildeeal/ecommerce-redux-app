@@ -21,10 +21,11 @@ const ProductGrid = () => {
   }, [dispatch]);
 
   const handleScroll = useCallback(
-    (e: any) => {
+    (e: UIEvent) => {
+      const target = e.target as Document;
       if (
-        window.innerHeight + e.target.documentElement.scrollTop + 1 >=
-        e.target.documentElement.scrollHeight
+        window.innerHeight + target.documentElement.scrollTop + 1 >=
+        target.documentElement.scrollHeight
       ) {
         if (!loading) {
           dispatch(loadMoreProducts());

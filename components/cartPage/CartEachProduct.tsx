@@ -6,15 +6,7 @@ import QuantityControlers from "./QuantityControlers";
 import useHandleToats from "@/utils/useHandleToasts";
 import MoreDetailsBtn from "../buttons/MoreDetailsBtn";
 import Link from "next/link";
-
-interface CartProduct {
-  id: number;
-  title: string;
-  description: string;
-  price: number;
-  image: string[];
-  quantity: number;
-}
+import { CartProduct } from "@/lib/types/types";
 
 interface CartEachProductProps {
   product: CartProduct;

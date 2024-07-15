@@ -6,7 +6,11 @@ import ProductCard from "@/components/displayProducts/ProductCard";
 import ClipLoader from "react-spinners/ClipLoader";
 import { RootState } from "@/lib/store";
 
-export default function searchPage({ params }: { params: { query: string } }) {
+type SearchPageProps = {
+  params: { query: string };
+};
+
+export default function searchPage({ params }: SearchPageProps) {
   const query = params.query;
   console.log(query);
   const products = useAppSelector((state) => state.products.products);

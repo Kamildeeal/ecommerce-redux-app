@@ -8,9 +8,12 @@ import { TfiFaceSad } from "react-icons/tfi";
 import Link from "next/link";
 import CartEachProduct from "@/components/cartPage/CartEachProduct";
 import { BsCart3 } from "react-icons/bs";
+import { CartProduct } from "@/lib/types/types";
 
 export default function cartPage() {
-  const cartProducts = useAppSelector((state: RootState) => state.cartProducts);
+  const cartProducts = useAppSelector(
+    (state: RootState) => state.cartProducts
+  ) as CartProduct[];
 
   return (
     <div className="flex mx-auto flex-col ">

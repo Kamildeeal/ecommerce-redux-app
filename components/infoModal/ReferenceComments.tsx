@@ -2,10 +2,14 @@ import React from "react";
 import { Product } from "@/lib/types/types";
 import { FaCheck } from "react-icons/fa";
 
-const ReferenceComments = ({ currentProduct }: any) => {
+interface ReferenceComments {
+  currentProduct: Product;
+}
+
+const ReferenceComments = ({ currentProduct }: ReferenceComments) => {
   return (
     <div className="h-auto w-full  bg-white rounded-xl py-4 px-6">
-      {currentProduct.reviews.map((review: any) => {
+      {currentProduct.reviews.map((review) => {
         return (
           <div className="mb-12" key={review.reviewerName}>
             <div className="flex justify-between items-center mb-2">

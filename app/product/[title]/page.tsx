@@ -1,48 +1,17 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import { notFound, useSearchParams } from "next/navigation";
-import { useAppDispatch, useAppSelector } from "@/lib/hookts";
-import { RootState } from "@/lib/store";
-import { fetchProducts } from "@/lib/features/products/FetchDataSlice";
-import { Product } from "@/lib/types/types";
-import LoadingSpinner from "@/utils/LoadingSpinner";
+import React from "react";
 import ProductHeader from "@/components/productPage/ProductHeader";
 import ProductDetails from "@/components/productPage/ProductDetails";
 import ProductPriceAvailability from "@/components/productPage/ProductPriceAvailability";
 import ReferenceComments from "@/components/infoModal/ReferenceComments";
 import AddToCartButton from "@/components/buttons/AddProduct";
 import useHandleToats from "@/utils/useHandleToasts";
+import LoadingSpinner from "@/utils/LoadingSpinner";
+import useProductData from "@/utils/useProductData";
 
-export default function ProductPage({ params }: { params: { title: string } }) {
-  const dispatch = useAppDispatch();
-  const products = useAppSelector(
-    (state: RootState) => state.products.products
-  );
-  const searchParams = useSearchParams();
-  const productId = searchParams.get("productId");
-  const [product, setProduct] = useState<Product | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
-
+export default function ProductPage() {
+  const { product, loading } = useProductData();
   const { handleAddItemToast } = useHandleToats();
-
-  const fetchData = async () => {
-    if (products.length === 0) {
-      await dispatch(fetchProducts());
-    }
-    const foundProduct = products.find(
-      (p) => p.id === parseInt(productId!, 10)
-    );
-    if (foundProduct) {
-      setProduct(foundProduct);
-    } else {
-      notFound();
-    }
-    setLoading(false);
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, [productId, dispatch, products]);
 
   if (!product || loading) {
     return <LoadingSpinner loading={loading} />;

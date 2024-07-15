@@ -1,8 +1,9 @@
+import { Product } from "@/lib/types/types";
 import Link from "next/link";
 import { MdReadMore } from "react-icons/md";
 
 interface AddProductButtonProps {
-  currentProduct: any;
+  currentProduct: Product;
   buttonText: string;
 }
 
