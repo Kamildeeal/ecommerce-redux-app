@@ -29,7 +29,7 @@ export default function NavbarCartIcon() {
           />
         </svg>
         {cartProducts.length > 0 && <CartDetails />}
-        <span className="hover:text-black">Cart</span>
+        <span className="hover:text-black hidden sm:flex">Cart</span>
       </div>
     </Link>
   );

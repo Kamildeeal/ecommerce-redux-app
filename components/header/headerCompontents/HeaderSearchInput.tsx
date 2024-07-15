@@ -1,5 +1,4 @@
-import Link from "next/link";
-import React, { useState, useRef } from "react";
+import React, { useRef } from "react";
 import { FaSearch } from "react-icons/fa";
 import { useRouter } from "next/navigation";
 
@@ -18,7 +17,7 @@ const SearchInput = () => {
   return (
     <form
       onSubmit={onSubmit}
-      className="max-w-[40vw] w-full mx-auto relative overflow-hidden"
+      className="md:max-w-[40vw] w-full mr-3 flex:1 relative overflow-hidden md:mx-auto"
     >
       <input
         type="text"

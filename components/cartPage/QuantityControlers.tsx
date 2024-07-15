@@ -10,11 +10,11 @@ interface QuantityControlProps {
 const QuantityControl = ({ id, quantity }: QuantityControlProps) => {
   return (
     <div className="flex gap-4 items-center mx-auto py-2">
-      <button>
+      <div>
         <QuantityDecrease id={id} disabled={quantity == 1} />
-      </button>
+      </div>
       <span className="font-semibold text-xl">{quantity}</span>
-      <button>
+      <div>
         <QuantityIncrease
           id={id}
           title={""}
@@ -22,7 +22,7 @@ const QuantityControl = ({ id, quantity }: QuantityControlProps) => {
           description={""}
           price={0}
         />
-      </button>
+      </div>
     </div>
   );
 };

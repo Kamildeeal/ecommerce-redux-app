@@ -14,8 +14,8 @@ const HeaderButton = ({ handleOpenModal, isScrolled }: HeaderButtonProps) => {
         isScrolled ? "bg-opacity-75" : "bg-opacity-100"
       }`}
     >
-      <HiMenu className="mr-2 text-2xl" />
-      <span className="relative bottom-[2px]">Categories</span>
+      <HiMenu className="sm:mr-2 text-2xl" />
+      <span className="relative bottom-[2px] hidden sm:flex">Categories</span>
     </button>
   );
 };
