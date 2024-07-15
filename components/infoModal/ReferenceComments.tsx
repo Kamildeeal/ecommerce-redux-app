@@ -9,7 +9,9 @@ const ReferenceComments = ({ currentProduct }: any) => {
         return (
           <div className="mb-12" key={review.reviewerName}>
             <div className="flex justify-between items-center mb-2">
-              <span className="text-gray-600 text-sm">{review.date}</span>
+              <span className="text-gray-600 text-sm max-w-[150px] md:max-w-max w-full">
+                {review.date}
+              </span>
               <span className="text-gray-700 font-medium text-end ml-2">
                 by {review.reviewerName}
               </span>

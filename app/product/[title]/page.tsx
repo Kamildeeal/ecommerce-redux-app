@@ -51,9 +51,9 @@ export default function ProductPage({ params }: { params: { title: string } }) {
   return (
     <div>
       <ProductHeader />
-      <div className="w-full max-w-[1480px] mx-auto flex px-20 my-10">
+      <div className="w-full max-w-[1480px] mx-auto flex flex-col md:flex-row px-6 sm:px-12 md:px-20 my-10 min-w-[360px]">
         <ProductDetails product={product} />
-        <div className="flex-1 px-4 ml-8">
+        <div className="flex-1 px-4  md:ml-8">
           <ProductPriceAvailability product={product} />
           <div onClick={handleAddItemToast}>
             <AddToCartButton

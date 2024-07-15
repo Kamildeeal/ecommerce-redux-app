@@ -7,7 +7,7 @@ import RatingComponent from "@/utils/ReactStars";
 import ProductImage from "@/components/productPage/ProductImage";
 
 const ProductDetails = ({ product }: { product: Product }) => (
-  <div className="flex-1 px-4 mr-8">
+  <div className="flex-1 px-4 md:mr-8">
     <div className="flex gap-4 items-center text-gray-500 mb-6">
       <Link href={"/"}>
         <BsFillHouseDownFill className="text-2xl" />
