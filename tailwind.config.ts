@@ -24,6 +24,9 @@ const config: Config = {
         xl: "1440px",
       },
     },
+    boxShadow: {
+      "bottom-only": "0 2px 4px -1px rgba(0, 0, 0, 0.4)",
+    },
   },
   plugins: [require("tailwind-scrollbar")],
 };

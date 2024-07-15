@@ -17,7 +17,7 @@ const ClosedModal = ({ handleOpenModal }: { handleOpenModal: () => void }) => {
     <AnimatePresence>
       <div
         onClick={handleOpenModal}
-        className="z-[35] fixed top-0 left-0 w-[60px] max-h-max bg-gray-200 bg-opacity-40 border-l-2 border-gray-800 rounded-r-xl my-[15vh]"
+        className="hidden sm:flex z-[35] fixed top-0 left-0 w-[60px] max-h-max bg-gray-200 bg-opacity-40 border-l-2 border-gray-800 rounded-r-xl my-[15vh]"
       >
         <div className="py-2 px-1 flex flex-col h-full">
           {Object.values(Categories).map((category) => {

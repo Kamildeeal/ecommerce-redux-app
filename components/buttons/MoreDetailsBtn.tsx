@@ -19,9 +19,9 @@ const MoreDetailsBtn = ({
         query: { productId: `${currentProduct.id}` },
       }}
     >
-      <div className="relative flex items-center justify-center w-full text-center px-2 py-1 mx-auto border-2 border-black text-lg font-bold uppercase rounded hover:bg-gray-100 ">
+      <div className="py-[0.325rem] relative flex items-center justify-center w-full text-center px-4 md:py-2 text-sm mx-auto border-2 border-black lg:text-lg font-bold uppercase rounded hover:bg-gray-100 ">
         {buttonText}
-        <MdReadMore className="text-3xl ml-2" />
+        <MdReadMore className="text-2xl lg:text-3xl ml-2" />
       </div>
     </Link>
   );
