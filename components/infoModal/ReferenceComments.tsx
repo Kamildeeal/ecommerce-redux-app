@@ -9,9 +9,10 @@ interface ReferenceComments {
 const ReferenceComments = ({ currentProduct }: ReferenceComments) => {
   return (
     <div className="h-auto w-full  bg-white rounded-xl py-4 px-6">
-      {currentProduct.reviews.map((review) => {
+      {currentProduct.reviews.map((review, index) => {
+        const key = `${review.date}-${index}`;
         return (
-          <div className="mb-12" key={review.reviewerName}>
+          <div className="mb-12" key={key}>
             <div className="flex justify-between items-center mb-2">
               <span className="text-gray-600 text-sm max-w-[150px] md:max-w-max w-full">
                 {review.date}

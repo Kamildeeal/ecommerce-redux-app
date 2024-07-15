@@ -1,17 +1,17 @@
 import React from "react";
-import ReactStars from "react-rating-stars-component";
 
 const RatingComponent = ({ rating }: { rating: number }) => {
-  return (
-    <ReactStars
-      count={5}
-      value={rating}
-      size={24}
-      isHalf={true}
-      edit={false}
-      activeColor="#ffd700"
-    />
-  );
+  const stars = [1, 2, 3, 4, 5].map((star) => (
+    <span
+      key={star}
+      style={{ color: star <= rating ? "#ffd700" : "#ddd" }}
+      className="text-2xl lg:text-3xl"
+    >
+      ★
+    </span>
+  ));
+
+  return <div>{stars}</div>;
 };
 
 export default RatingComponent;
