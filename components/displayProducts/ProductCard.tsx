@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useCallback, useEffect, useState } from "react";
 import { useAppDispatch } from "@/lib/hookts";
 import AddProductButton from "../buttons/AddProduct";
 import ProductImage from "./ProductImage";
@@ -9,6 +10,8 @@ import { styled } from "@mui/material/styles";
 import Tooltip, { TooltipProps, tooltipClasses } from "@mui/material/Tooltip";
 import RatingComponent from "@/utils/ReactStars";
 import useHandleToats from "@/utils/useHandleToasts";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 interface ProductCardProps {
   product: Product;
@@ -16,6 +19,7 @@ interface ProductCardProps {
 
 const ProductCard = ({ product }: ProductCardProps) => {
   const dispatch = useAppDispatch();
+  const [smallWindowWidthSize, setSmallWindowWidthSize] = useState(false);
 
   const { handleAddItemToast } = useHandleToats();
 
@@ -23,6 +27,27 @@ const ProductCard = ({ product }: ProductCardProps) => {
     dispatch(setCurrentProduct(product));
     dispatch(openModal());
   };
+
+  const handleDisplayOnProductPage = () => {
+    const path = `/product/${product.title
+      .replace(/\s+/g, "-")
+      .toLowerCase()}?productId=${product.id}`;
+
+    router.push(path);
+  };
+
+  const handleResize = useCallback(() => {
+    setSmallWindowWidthSize(window.innerWidth < 640);
+  }, []);
+  const router = useRouter();
+
+  useEffect(() => {
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [handleResize]);
 
   const LargeTooltip = styled(({ className, ...props }: TooltipProps) => (
     <Tooltip {...props} classes={{ popper: className }} />
@@ -34,8 +59,15 @@ const ProductCard = ({ product }: ProductCardProps) => {
 
   return (
     <div className="m-1 w-[240px] lg:w-[280px] bg-white border border-red-200 rounded-lg shadow-md overflow-hidden flex flex-col items-center hover:bg-gray-100  hover:border-gray-400">
-      <LargeTooltip title="Click to see preview" placement="right-start" arrow>
-        <div onClick={() => handleDisplayInModal()} className="cursor-pointer">
+      <LargeTooltip title="Click to see preview" placement="right-end" arrow>
+        <div
+          onClick={() =>
+            smallWindowWidthSize
+              ? handleDisplayOnProductPage()
+              : handleDisplayInModal()
+          }
+          className="cursor-pointer"
+        >
           <ProductImage src={product.images[0]} alt={product.title} />
         </div>
       </LargeTooltip>

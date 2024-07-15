@@ -36,7 +36,7 @@ const CategoriesModal = ({
             initial="initial"
             animate="enter"
             exit="exit"
-            className="z-[35] fixed top-0 left-0 w-[320px] h-[95vh] bg-white border-l-2 border-2 border-gray-800 rounded-r-xl my-[28px]"
+            className="z-[35] fixed top-0 left-0 w-[320px] h-[85vh] bg-white border-l-2 border-2 border-gray-800 rounded-r-xl my-[28px]"
           >
             <div className="py-6 px-6 flex flex-col h-full">
               <button

@@ -11,9 +11,14 @@ import { categoriesSlide } from "@/app/styles/animations/animateVariants";
 interface MobileHeaderProps {
   isScrolled: boolean;
   isLoaded: boolean;
+  handleOpenModal: () => void;
 }
 
-const MobileHeader = ({ isScrolled, isLoaded }: MobileHeaderProps) => {
+const MobileHeader: React.FC<MobileHeaderProps> = ({
+  isScrolled,
+  isLoaded,
+  handleOpenModal,
+}) => {
   return (
     <>
       <div className="z-50 container mx-auto flex justify-between items-center flex-col">
@@ -21,7 +26,10 @@ const MobileHeader = ({ isScrolled, isLoaded }: MobileHeaderProps) => {
           {isScrolled ? <div></div> : <HeaderLogo isScrolled={isScrolled} />}
         </div>
         <div className="w-full flex items-center flex-grow mx-4">
-          <HeaderCategoriesBtn handleOpenModal={() => {}} isScrolled={false} />
+          <HeaderCategoriesBtn
+            handleOpenModal={handleOpenModal}
+            isScrolled={false}
+          />
           <HeaderSearchInput />
         </div>
       </div>

@@ -31,9 +31,16 @@ export default function Header() {
       onClick={() => dispatch(closeModal())}
     >
       {mediumWindowWidthSize ? (
-        <MobileHeader isScrolled={isScrolled} isLoaded={isLoaded} />
+        <MobileHeader
+          isScrolled={isScrolled}
+          isLoaded={isLoaded}
+          handleOpenModal={handleOpenModal}
+        />
       ) : (
-        <DesktopHeader isScrolled={isScrolled} />
+        <DesktopHeader
+          isScrolled={isScrolled}
+          handleOpenModal={handleOpenModal}
+        />
       )}
 
       <AnimatePresence mode="wait">
