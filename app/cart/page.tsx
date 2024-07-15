@@ -26,7 +26,7 @@ export default function cartPage() {
           </div>
         )}
         <div className="xl:flex-row flex flex-col">
-          <div className="mx-auto py-2 sm:py-10 md:px-12 flex flex-col max-w-[1440px] w-full justify-center">
+          <div className="mx-auto py-2 sm:pb-10 md:px-12 flex flex-col max-w-[1440px] w-full justify-center">
             {cartProducts?.map((product) => (
               <CartEachProduct key={product.id} product={product} />
             ))}

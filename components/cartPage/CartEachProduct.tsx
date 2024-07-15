@@ -5,6 +5,7 @@ import FullClearItemButton from "../buttons/FullClearItemButton";
 import QuantityControlers from "./QuantityControlers";
 import useHandleToats from "@/utils/useHandleToasts";
 import MoreDetailsBtn from "../buttons/MoreDetailsBtn";
+import Link from "next/link";
 
 interface CartProduct {
   id: number;
@@ -38,7 +39,18 @@ export default function CartEachProduct({ product }: CartEachProductProps) {
       </div>
       <div className="flex sm:flex-row flex-col justify-between sm:justify-normal">
         <div className="px-4 flex flex-col gap-2 mr-auto justify-between">
-          <div className="text-sm sm:text-xl font-bold">{product.title}</div>
+          <Link
+            href={{
+              pathname: `/product/${product.title
+                .replace(/\s+/g, "-")
+                .toLowerCase()}`,
+              query: { productId: `${product.id}` },
+            }}
+          >
+            <div className="text-sm sm:text-xl font-bold underline hover:no-underline cursor-pointer">
+              {product.title}
+            </div>
+          </Link>
           <div className="hidden sm:flex">{product.description}</div>
           <div className="text-sm sm:text-base font-semibold">
             Summary cost: ${(product.price * product.quantity).toFixed(2)}

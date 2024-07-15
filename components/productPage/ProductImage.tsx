@@ -21,6 +21,9 @@ const ProductImage = ({ product }: { product: Product }) => {
 
   return (
     <>
+      <div className="w-full mx-auto flex justify-center font-semibold mt-4">
+        Click on the photo to enlarge.
+      </div>
       <div className="sticky top-40 mx-auto w-[200px] lg:w-[260px] mt-20">
         {product.images && product.images.length > 0 ? (
           <div

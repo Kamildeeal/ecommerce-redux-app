@@ -30,6 +30,7 @@ const ProductDetails = ({ product }: { product: Product }) => (
       </p>
       <RatingComponent rating={Math.round(product.rating * 2) / 2} />
     </div>
+
     <ProductImage product={product} />
   </div>
 );
