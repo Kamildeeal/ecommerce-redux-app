@@ -5,9 +5,9 @@ import ProductDetails from "@/components/productPage/ProductDetails";
 import ProductPriceAvailability from "@/components/productPage/ProductPriceAvailability";
 import ReferenceComments from "@/components/infoModal/ReferenceComments";
 import AddToCartButton from "@/components/buttons/AddProduct";
-import useHandleToats from "@/utils/useHandleToasts";
+import useHandleToats from "@/utils/hooks/useHandleToasts";
 import LoadingSpinner from "@/utils/LoadingSpinner";
-import useProductData from "@/utils/useProductData";
+import useProductData from "@/utils/hooks/useProductData";
 
 export default function ProductPage() {
   const { product, loading } = useProductData();

@@ -9,7 +9,7 @@ interface Product {
   quantity: number;
 }
 
-const initialState: Product[] | null = [];
+export const initialState: Product[] | null = [];
 
 const cartProducts = createSlice({
   name: "cartProducts",

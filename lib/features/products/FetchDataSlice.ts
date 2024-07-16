@@ -1,38 +1,6 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
-
-export interface Review {
-  rating: number;
-  comment: string;
-  date: string;
-  reviewerName: string;
-  reviewerEmail: string;
-}
-
-export interface Product {
-  id: number;
-  title: string;
-  images: string[];
-  price: number;
-  description: string;
-  category: string;
-  rating: number;
-  brand: string | null;
-  availabilityStatus: string;
-  warrantyInformation: string;
-  shippingInformation: string;
-  reviews: Review[];
-}
-
-interface FetchData {
-  loading: boolean;
-  products: Product[];
-  filteredProducts: Product[];
-  categoryFilter: string | null;
-  displayedProducts: Product[];
-  error: null | string;
-  page: number;
-}
+import { Product } from "@/lib/types/types";
 
 export const fetchProducts = createAsyncThunk(
   "products/fetchProducts",
@@ -43,6 +11,16 @@ export const fetchProducts = createAsyncThunk(
     return response.data.products;
   }
 );
+
+interface FetchData {
+  loading: boolean;
+  products: Product[];
+  filteredProducts: Product[];
+  categoryFilter: string | null;
+  displayedProducts: Product[];
+  error: null | string;
+  page: number;
+}
 
 const initialState: FetchData = {
   loading: true,

@@ -1,7 +1,7 @@
 // components/Header.tsx
 "use client";
 import React from "react";
-import { useHeader } from "@/utils/useHeader";
+import { useHeader } from "@/utils/hooks/useHeader";
 import { useAppDispatch } from "@/lib/hookts";
 import { closeModal } from "@/lib/features/modal/ModalSlice";
 import CategoriesModal from "@/components/categoriesModal/CategoriesModal";
@@ -23,6 +23,7 @@ export default function Header() {
 
   return (
     <header
+      data-testid="header"
       className={`sticky top-0 left-0 z-40 bg-gray-800 text-white pb-4 pt-1m md:px-4 ${
         isScrolled ? "pt-4" : "pt-2"
       } ${

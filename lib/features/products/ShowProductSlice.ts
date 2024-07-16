@@ -5,7 +5,7 @@ interface ProductDisplayState {
   currentProduct: Product | null;
 }
 
-const initialState: ProductDisplayState = {
+export const initialState: ProductDisplayState = {
   currentProduct: null,
 };
 

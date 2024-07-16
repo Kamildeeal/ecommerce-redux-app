@@ -3,7 +3,7 @@ import Image from "next/image";
 import React from "react";
 import FullClearItemButton from "../buttons/FullClearItemButton";
 import QuantityControlers from "./QuantityControlers";
-import useHandleToats from "@/utils/useHandleToasts";
+import useHandleToats from "@/utils/hooks/useHandleToasts";
 import MoreDetailsBtn from "../buttons/MoreDetailsBtn";
 import Link from "next/link";
 import { CartProduct } from "@/lib/types/types";

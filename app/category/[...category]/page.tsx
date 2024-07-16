@@ -6,7 +6,7 @@ import { AnimatePresence } from "framer-motion";
 import ClipLoader from "react-spinners/ClipLoader";
 import ProductCard from "@/components/displayProducts/ProductCard";
 import InfoModal from "@/components/infoModal/InfoModal";
-import useCategoryProducts from "@/utils/useCategoryProducts";
+import useCategoryProducts from "@/utils/hooks/useCategoryProducts";
 
 type CategoryPageProps = {
   params: { category: string[] };

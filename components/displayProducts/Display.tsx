@@ -21,7 +21,7 @@ const ProductList = () => {
   }
 
   return (
-    <div>
+    <div data-testid="display-products">
       <Hero />
       <ProductGrid />
     </div>
