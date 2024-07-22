@@ -8,6 +8,7 @@ import { TfiFaceSad } from "react-icons/tfi";
 import Link from "next/link";
 import CartEachProduct from "@/components/cartPage/CartEachProduct";
 import { CartProduct } from "@/lib/types/types";
+import ContinueBtn from "@/components/buttons/ContinueBtn";
 
 export default function cartPage() {
   // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -32,11 +33,7 @@ export default function cartPage() {
           {cartProducts.length > 0 && (
             <div className="flex flex-col">
               <OrderResume />
-              <Link href={"cart/order"}>
-                <div className="mx-auto lg:my-2 px-4 py-2 text-xl border-2 max-w-max border-gray-800 font-bold text-white  rounded-lg shadow-sm cursor cursor-pointer transition bg-blue-500 hover:text-gray-800 hover:bg-white">
-                  Continue
-                </div>
-              </Link>
+              <ContinueBtn />
             </div>
           )}
         </div>

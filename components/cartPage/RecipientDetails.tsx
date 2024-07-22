@@ -91,7 +91,7 @@ const RecipientDetails = () => {
           <button
             type="button"
             onClick={handleAutoFill}
-            className="bg-green-500 text-2xl text-white shadow-bottom-only shadow-neutral-800 rounded-xl hover:bg-green-700 py-2 px-6"
+            className="bg-green-500 mb-8 mt-2 text-2xl text-white shadow-bottom-only shadow-neutral-800 rounded-xl hover:bg-green-700 py-2 px-6"
           >
             Auto-fill fields
           </button>

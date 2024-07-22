@@ -29,7 +29,7 @@ export default function CartEachProduct({ product }: CartEachProductProps) {
           priority
         />
       </div>
-      <div className="flex sm:flex-row flex-col justify-between sm:justify-normal">
+      <div className="flex sm:flex-row flex-col justify-between sm:justify-normal w-full">
         <div className="px-4 flex flex-col gap-2 mr-auto justify-between">
           <Link
             href={{

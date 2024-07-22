@@ -29,7 +29,7 @@ export default function orderPage() {
             </div>
           </div>
           <div className="xl:flex-row flex flex-col">
-            <div className="px-4 sm:px-20 w-full min-w-[310px]">
+            <div className="px-4 mb-6 sm:px-20 w-full min-w-[310px]">
               <OrderResume />
               <div
                 className={`mx-auto my-2 px-4 py-2 text-xl border-2 max-w-max border-gray-400 font-bold text-white ${
@@ -41,7 +41,7 @@ export default function orderPage() {
                     <p>Add items to cart!</p>
                   </Link>
                 ) : (
-                  "Pay and finish order!"
+                  "Pay now"
                 )}
               </div>
               <div className="mx-auto flex justify-center">

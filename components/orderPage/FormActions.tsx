@@ -3,7 +3,7 @@ import { Tooltip } from "@mui/material";
 import Link from "next/link";
 
 const FormActions = ({ isFormValid, handleReset }) => (
-  <div className="text-right mt-6 text-xl">
+  <div className="text-center sm:text-right mt-6 text-xl">
     <Tooltip
       title={
         isFormValid ? "Move to payment method" : "All fields are required!"
@@ -15,9 +15,9 @@ const FormActions = ({ isFormValid, handleReset }) => (
           type="submit"
           className={`${
             isFormValid
-              ? "bg-gray-800"
-              : "mx-auto lg:my-2 px-4 py-2 text-xl border-2 max-w-max border-gray-800 font-bold text-white  rounded-lg shadow-sm cursor transition bg-blue-600 hover:text-gray-800 hover:bg-white cursor-not-allowed"
-          } text-white shadow-bottom-only shadow-neutral-800 rounded-xl py-2 px-6 mr-8`}
+              ? "bg-blue-600 border-2 border-gray-800"
+              : "mx-auto lg:my-2 px-4 py-2 text-xl border-2 max-w-max border-gray-800 font-bold text-white  rounded-lg shadow-sm cursor transition bg-gray-800 hover:text-gray-800 hover:bg-white cursor-not-allowed"
+          } text-white shadow-bottom-only shadow-neutral-800 rounded-xl py-2 px-6 mr-2 sm:mr-8`}
           disabled={!isFormValid}
         >
           Continue
