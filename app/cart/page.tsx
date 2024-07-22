@@ -7,7 +7,6 @@ import OrderResume from "@/components/cartPage/OrderResume";
 import { TfiFaceSad } from "react-icons/tfi";
 import Link from "next/link";
 import CartEachProduct from "@/components/cartPage/CartEachProduct";
-import { BsCart3 } from "react-icons/bs";
 import { CartProduct } from "@/lib/types/types";
 
 export default function cartPage() {
@@ -18,10 +17,6 @@ export default function cartPage() {
 
   return (
     <div className="flex mx-auto flex-col ">
-      {/* <h1 className="text-3xl font-bold mb-4 text-center mt-4 border-b-2 pb-2 w-full shadow-bottom-only flex justify-center gap-3 ">
-        Your Cart
-        <BsCart3 />
-      </h1> */}
       <div className="px-8 sm:px-20 w-full min-w-[360px]">
         {cartProducts.length > 0 && (
           <div className="text-2xl md:text-3xl px-2 md:px-[3.2rem] my-2 font-climate-crisis">
@@ -38,7 +33,7 @@ export default function cartPage() {
             <div className="flex flex-col">
               <OrderResume />
               <Link href={"cart/order"}>
-                <div className="mx-auto lg:my-2 px-4 py-2 text-xl border-2 max-w-max border-gray-800 font-bold text-white  rounded-lg shadow-sm cursor cursor-pointer transition bg-gray-800 hover:text-gray-800 hover:bg-white">
+                <div className="mx-auto lg:my-2 px-4 py-2 text-xl border-2 max-w-max border-gray-800 font-bold text-white  rounded-lg shadow-sm cursor cursor-pointer transition bg-blue-500 hover:text-gray-800 hover:bg-white">
                   Continue
                 </div>
               </Link>

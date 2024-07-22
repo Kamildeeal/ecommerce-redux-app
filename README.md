@@ -13,17 +13,7 @@ Single Page Applications (SPAs) don't execute on the server and therefore can de
 
 ## Todo
 
-- add routes to products
-- add animations to compontents
-- decrease logo size while scroling down
-- add loading anitmation
-- change ugly toast
-- add category tooltip on the left side of screen
-- cache date
-- add/change hero section
-- change style of buttons
-
-add not-found.tsx compontent, add routing
+- cache data
 
 ### Getting Started
 

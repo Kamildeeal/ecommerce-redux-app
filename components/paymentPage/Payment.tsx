@@ -51,6 +51,7 @@ export const PaymentMethodSelector = () => {
               alt={method.name}
               width={100}
               height={30}
+              className="ml-4"
             />
           </label>
         ))}
