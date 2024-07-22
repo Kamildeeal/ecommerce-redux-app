@@ -21,7 +21,7 @@ const ProductList = () => {
   }
 
   return (
-    <div data-testid="display-products">
+    <div data-testid="display-products w-full">
       <Hero />
       <ProductGrid />
     </div>

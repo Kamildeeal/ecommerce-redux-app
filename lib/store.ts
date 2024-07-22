@@ -4,6 +4,7 @@ import FetchDataReducer from "./features/products/FetchDataSlice";
 import ToastReducer from "./features/toast/ToastsSlice";
 import ModalReducer from "./features/modal/ModalSlice";
 import ProductInfoRedcuer from "./features/products/ShowProductSlice";
+import ClientInfoReducer from "./features/clientInfo/ClientInfoSlice";
 
 const rootReducer = combineReducers({
   products: FetchDataReducer,
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
   toast: ToastReducer,
   modal: ModalReducer,
   productInfo: ProductInfoRedcuer,
+  clientInfo: ClientInfoReducer,
 });
 
 export function setupStore(preloadedState?: Partial<RootState>) {
