@@ -27,7 +27,9 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "jest.config.ts"
+    "jest.config.ts",
+    "__tests__/fetchingVariants.test.js",
+    "__tests__/actions.test.js"
   ],
   "exclude": ["node_modules"]
 }

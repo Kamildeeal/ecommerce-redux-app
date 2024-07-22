@@ -20,7 +20,7 @@ interface ProductCardProps {
 const ProductCard = ({ product }: ProductCardProps) => {
   const dispatch = useAppDispatch();
   const [smallWindowWidthSize, setSmallWindowWidthSize] = useState(false);
-
+  const router = useRouter();
   const { handleAddItemToast } = useHandleToats();
 
   const handleDisplayInModal = () => {
@@ -39,7 +39,6 @@ const ProductCard = ({ product }: ProductCardProps) => {
   const handleResize = useCallback(() => {
     setSmallWindowWidthSize(window.innerWidth < 640);
   }, []);
-  const router = useRouter();
 
   useEffect(() => {
     handleResize();

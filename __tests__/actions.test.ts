@@ -1,4 +1,3 @@
-// __tests__/actions.test.ts
 import { fetchProducts } from "@/lib/features/products/FetchDataSlice";
 import { setupStore } from "@/lib/store";
 

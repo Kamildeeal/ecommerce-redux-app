@@ -1,7 +1,7 @@
 import type { Config } from "jest";
-import nextJest from "next/jest.js";
+import nextJest from "next/jest";
 
-//Config from Next.js docs
+// Config from Next.js docs
 const createJestConfig = nextJest({
   // Provide the path to your Next.js app to load next.config.js and .env files in your test environment
   dir: "./",
@@ -15,7 +15,10 @@ const config: Config = {
   preset: "ts-jest",
   testPathIgnorePatterns: ["/node_modules/", "/.next/"],
   moduleNameMapper: {
-    "^@/(.*)$": "<rootDir>/src/$1",
+    "^@/(.*)$": "<rootDir>/$1", // Odpowiednio ustawienie ścieżki względem głównego katalogu
+  },
+  transform: {
+    "^.+\\.(ts|tsx)$": "ts-jest",
   },
   transformIgnorePatterns: [
     "/node_modules/",
