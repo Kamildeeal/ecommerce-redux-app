@@ -18,7 +18,11 @@ export const useHeader = () => {
   };
 
   const handleScroll = useCallback(() => {
-    setIsScrolled(window.scrollY > 50);
+    setIsScrolled((prevIsScrolled) => {
+      if (prevIsScrolled && window.scrollY < 30) return false;
+      if (!prevIsScrolled && window.scrollY > 70) return true;
+      return prevIsScrolled;
+    });
   }, []);
 
   const handleResize = useCallback(() => {

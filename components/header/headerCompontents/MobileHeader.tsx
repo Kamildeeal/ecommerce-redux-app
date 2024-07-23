@@ -23,7 +23,7 @@ const MobileHeader = ({
     <>
       <div className="z-50 container mx-auto flex justify-between items-center flex-col">
         <div className="flex">
-          {isScrolled ? <div></div> : <HeaderLogo isScrolled={isScrolled} />}
+          {!isScrolled && <HeaderLogo isScrolled={isScrolled} />}
         </div>
         <div className="w-full flex items-center flex-grow mx-4">
           <HeaderCategoriesBtn
