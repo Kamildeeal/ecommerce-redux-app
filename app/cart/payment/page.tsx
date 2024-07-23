@@ -10,11 +10,9 @@ import Link from "next/link";
 import ClientShippingInfo from "@/components/paymentPage/ClientShippingInfo";
 
 export default function orderPage() {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const cartProducts = useAppSelector(
     (state: RootState) => state.cartProducts
   ) as CartProduct[];
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const clientInfo = useAppSelector((state: RootState) => state.clientInfo);
 
   return (

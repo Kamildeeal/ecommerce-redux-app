@@ -11,7 +11,6 @@ import { CartProduct } from "@/lib/types/types";
 import ContinueBtn from "@/components/buttons/ContinueBtn";
 
 export default function cartPage() {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const cartProducts = useAppSelector(
     (state: RootState) => state.cartProducts
   ) as CartProduct[];
