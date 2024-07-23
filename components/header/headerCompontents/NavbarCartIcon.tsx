@@ -7,10 +7,7 @@ import { RootState } from "@/lib/store";
 
 export default function NavbarCartIcon() {
   const cartProducts = useAppSelector((state: RootState) => state.cartProducts);
-  const totalPrice = cartProducts.reduce(
-    (total, product) => total + product.price * product.quantity,
-    0
-  );
+
   return (
     <Link href="/cart">
       <div className="relative lg:text-2xl bg-yellow-700  flex gap-2 px-6 py-2 rounded-md justify-center items-center cursor-pointer hover:bg-yellow-600">

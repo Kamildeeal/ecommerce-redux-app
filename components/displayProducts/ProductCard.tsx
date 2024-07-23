@@ -10,7 +10,6 @@ import { styled } from "@mui/material/styles";
 import Tooltip, { TooltipProps, tooltipClasses } from "@mui/material/Tooltip";
 import RatingComponent from "@/utils/ReactStars";
 import useHandleToats from "@/utils/hooks/useHandleToasts";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 interface ProductCardProps {

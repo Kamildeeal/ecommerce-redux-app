@@ -9,7 +9,7 @@ import { PaymentMethodSelector } from "@/components/paymentPage/Payment";
 import Link from "next/link";
 import ClientShippingInfo from "@/components/paymentPage/ClientShippingInfo";
 
-export default function orderPage() {
+export default function PaymentPage() {
   const cartProducts = useAppSelector(
     (state: RootState) => state.cartProducts
   ) as CartProduct[];

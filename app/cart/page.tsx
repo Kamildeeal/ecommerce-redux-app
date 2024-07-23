@@ -10,7 +10,7 @@ import CartEachProduct from "@/components/cartPage/CartEachProduct";
 import { CartProduct } from "@/lib/types/types";
 import ContinueBtn from "@/components/buttons/ContinueBtn";
 
-export default function cartPage() {
+export default function CartPage() {
   const cartProducts = useAppSelector(
     (state: RootState) => state.cartProducts
   ) as CartProduct[];

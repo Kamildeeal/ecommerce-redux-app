@@ -1,17 +1,10 @@
-import { useAppSelector } from "@/lib/hookts";
 import React from "react";
 import categoryIcons from "./CategoryIcons";
 import Categories from "@/lib/enums/ProductCategories";
 import { AnimatePresence, motion } from "framer-motion";
-import {
-  categoriesSlide,
-  menuSlide,
-  stripeSlide,
-} from "@/app/styles/animations/animateVariants";
+import { stripeSlide } from "@/app/styles/animations/animateVariants";
 
 const ClosedModal = ({ handleOpenModal }: { handleOpenModal: () => void }) => {
-  const categories = useAppSelector((state) => state.products.products);
-
   return (
     // desktop tablet Modal - big devices
     <AnimatePresence>

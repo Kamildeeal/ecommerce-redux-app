@@ -11,10 +11,7 @@ interface DesktopHeaderProps {
   handleOpenModal: () => void;
 }
 
-const DesktopHeader: React.FC<DesktopHeaderProps> = ({
-  isScrolled,
-  handleOpenModal,
-}) => {
+const DesktopHeader = ({ isScrolled, handleOpenModal }: DesktopHeaderProps) => {
   return (
     <div className="z-50 container mx-auto flex justify-between items-center">
       <div className="flex">

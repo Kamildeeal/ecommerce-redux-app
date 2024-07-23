@@ -10,10 +10,7 @@ interface ModalWrapperProps {
   handleCloseModal: () => void;
 }
 
-const ModalWrapper: React.FC<ModalWrapperProps> = ({
-  isOpen,
-  handleCloseModal,
-}) => {
+const ModalWrapper = ({ isOpen, handleCloseModal }: ModalWrapperProps) => {
   return (
     <AnimatePresence mode="wait">
       {isOpen ? (

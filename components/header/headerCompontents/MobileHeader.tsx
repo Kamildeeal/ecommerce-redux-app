@@ -14,11 +14,11 @@ interface MobileHeaderProps {
   handleOpenModal: () => void;
 }
 
-const MobileHeader: React.FC<MobileHeaderProps> = ({
+const MobileHeader = ({
   isScrolled,
   isLoaded,
   handleOpenModal,
-}) => {
+}: MobileHeaderProps) => {
   return (
     <>
       <div className="z-50 container mx-auto flex justify-between items-center flex-col">

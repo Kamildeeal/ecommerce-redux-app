@@ -10,7 +10,7 @@ type SearchPageProps = {
   params: { query: string };
 };
 
-export default function searchPage({ params }: SearchPageProps) {
+export default function SearchPage({ params }: SearchPageProps) {
   const query = params.query;
   console.log(query);
   const products = useAppSelector((state) => state.products.products);

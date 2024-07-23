@@ -1,7 +1,7 @@
 "use client";
 import { closeModal } from "@/lib/features/modal/ModalSlice";
 import { useAppDispatch, useAppSelector } from "@/lib/hookts";
-import { useCallback, useEffect, useState, useRef } from "react";
+import { useState, useRef } from "react";
 import { RootState } from "@/lib/store";
 import Image from "next/image";
 import AddProductButton from "../buttons/AddProduct";

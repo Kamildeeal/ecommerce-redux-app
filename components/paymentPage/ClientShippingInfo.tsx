@@ -4,7 +4,7 @@ import React from "react";
 import { useAppSelector } from "@/lib/hookts";
 import { RootState } from "@/lib/store";
 
-const ShippingAddress: React.FC = () => {
+const ShippingAddress = () => {
   const clientInfo = useAppSelector((state: RootState) => state.clientInfo);
 
   if (clientInfo.firstName === "") {

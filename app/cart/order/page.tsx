@@ -7,7 +7,7 @@ import OrderResume from "@/components/cartPage/OrderResume";
 import { CartProduct } from "@/lib/types/types";
 import RecipientDetails from "@/components/cartPage/RecipientDetails";
 
-export default function orderPage() {
+export default function OrderPage() {
   const cartProducts = useAppSelector(
     (state: RootState) => state.cartProducts
   ) as CartProduct[];

@@ -1,5 +1,5 @@
 "use client";
-import { useAppSelector } from "@/lib/hookts";
+
 import React, { useState } from "react";
 import CategoriesList from "./CategoriesList";
 import { AnimatePresence, motion } from "framer-motion";
