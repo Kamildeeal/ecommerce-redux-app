@@ -1,23 +1,37 @@
 # ecommerce-redux-app
-
-Purpose of making this project is to get started with Redux Toolkit, NextJs 14, TypeScript
-https://redux.js.org/usage/nextjs
+eCommerce shop project, a modern web application designed to provide a seamless shopping experience. This application is developed with Next.js and React, leveraging Redux for efficient state management. Data is fetched from a REST API to ensure dynamic and up-to-date content from dummyjson.com.
 
 Main assumptions:
-Integrate App Router Architecture (NextJs 14.2.4) and Redux. Based on the architecture of the App Router we have these general recommendations for appropriate use of Redux:
--- No global stores - Because the Redux store is shared across requests, it should not be defined as a global variable. Instead, the store should be created per request.
--- React Server Compontents should nto read or write the Redux store - RSCs cannot use hooks or context. They aren't meant to be stateful. Having an RSC read or write values from a global store violates the architecture of the Next.js App Router.
--- The store should only contain mutable data
+- Implement Redux State Menagment
+- Integrate App Router Architecture (NextJs 14.2.4) and Redux. (https://redux.js.org/usage/nextjs)
+- Create unit and integration tests with Jest/React-testing-library
 
-Single Page Applications (SPAs) don't execute on the server and therefore can define stores as global variables. SPAs don't need to worry about RSCs since they don't exist in SPAs. And singleton stores can store whatever data you want.
+## Features
+ - Browse products dynamically fetched from a REST API
+ - Efficient state management using Redux
+ - Responsive design with TailwindCSS
+ - Smooth animations with Framer Motion
+ - Built with TypeScript for type safety
+ - Comprehensive testing using Jest and React Testing Library
 
-## Todo
+### Tech stack
+  - React (18)
+  - Next.js (14.2.4)
+  - Redux (2.2.6)
+  - TypeScript
+  - TailwindCSS
+  - Jest
+  - React Testing Library
+  - Framer Motion
+  - Redux Toolkit
 
-- cache data
-
-### Getting Started
-
+#### Getting Started
 First, run the development server:
+```bash
+git clone https://github.com/Kamildeeal/ecommerce-redux-app.git
+cd ecommerce-redux-app
+npm install
+```
 
 ```bash
 npm run dev
