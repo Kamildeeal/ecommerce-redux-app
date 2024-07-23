@@ -2,7 +2,7 @@
 eCommerce shop project, a modern web application designed to provide a seamless shopping experience. This application is developed with Next.js and React, leveraging Redux for efficient state management. Data is fetched from a REST API to ensure dynamic and up-to-date content from dummyjson.com.
 
 Main assumptions:
-- Implement Redux State Menagment
+- Implement Redux State Management
 - Integrate App Router Architecture (NextJs 14.2.4) and Redux. (https://redux.js.org/usage/nextjs)
 - Create unit and integration tests with Jest/React-testing-library
 
