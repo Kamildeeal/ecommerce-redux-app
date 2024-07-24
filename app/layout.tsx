@@ -3,16 +3,14 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import StoreProvider from "./StoreProvider";
 import Header from "@/components/header/Header";
-import Head from "next/head";
 import { Climate_Crisis } from "next/font/google";
 import Footer from "@/components/footer/Footer";
 import TopLinksSection from "@/components/header/headerCompontents/TopLinksSection";
-import { AnimatePresence } from "framer-motion";
 import { Suspense } from "react";
 import Loading from "./product/[title]/loading";
-import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ToastCompontent from "@/utils/ToastCompontent";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -36,6 +34,7 @@ export default function RootLayout({
     <StoreProvider>
       <html lang="en" className={climateCrisis.variable}>
         <body className="flex flex-col min-h-screen">
+          <GoogleAnalytics gaId="G-FBNWCD71JM" />
           <ToastCompontent />
           <TopLinksSection />
           <Header />
