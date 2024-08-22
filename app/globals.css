@@ -1,3 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Baskervville+SC&family=Climate+Crisis&family=Moderustic:wght@300..800&family=Roboto+Slab:wght@100..900&display=swap");
+
+.moderustic {
+  font-family: "Moderustic", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.font-basker {
+  font-family: "Baskervville SC", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.font-roboto {
+  font-family: "Roboto", sans-serif;
+}
+
+.transition-max-height {
+  transition: max-height 0.3s ease;
+}

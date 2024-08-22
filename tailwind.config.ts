@@ -16,6 +16,9 @@ const config: Config = {
       },
       fontFamily: {
         "climate-crisis": ['"Climate Crisis"', "cursive"],
+        basker: ["Baskervville SC", "serif"],
+        roboto: ["Roboto", "sans-serif"],
+        moderustic: ["Moderustic", "sans-serif"],
       },
       screens: {
         sm: "640px",
@@ -26,6 +29,14 @@ const config: Config = {
     },
     boxShadow: {
       "bottom-only": "0 2px 4px -1px rgba(0, 0, 0, 0.4)",
+    },
+    maxHeight: {
+      "0": "0",
+      "250": "250px",
+      screen: "1000px", // Możesz dostosować tę wartość
+    },
+    transitionProperty: {
+      "max-height": "max-height",
     },
   },
   plugins: [require("tailwind-scrollbar")],

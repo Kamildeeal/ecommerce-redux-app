@@ -31,7 +31,7 @@ export default function Hero() {
         <p className="text-gray-700 mb-2 pb-6 font-climate-crisis">
           Discover our range of products and enjoy shopping with us!
         </p>
-        <div className="relative w-full h-[500px]">
+        <div className="relative max-w-[1100px] w-full h-[500px] mx-auto">
           <AnimatePresence>
             <motion.div
               key={currentIndex}
@@ -44,8 +44,8 @@ export default function Hero() {
               <Image
                 src={images[currentIndex]}
                 alt={`hero ${currentIndex}`}
-                sizes="100vw"
-                className="w-[100%] h-[500px] object-cover"
+                fill={true}
+                className="object-cover w-full max-w-[1100px]"
               />
             </motion.div>
           </AnimatePresence>

@@ -10,6 +10,7 @@ import {
   loadMoreProducts,
 } from "@/lib/features/products/FetchDataSlice";
 import ClipLoader from "react-spinners/ClipLoader";
+import CategoriesHomePage from "./CategoriesHomePage";
 
 const ProductGrid = () => {
   const dispatch = useAppDispatch();
@@ -54,10 +55,15 @@ const ProductGrid = () => {
       : filteredProducts;
 
   return (
-    <div className="grid justify-items-center sm:justify-normal grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-col-3 xl:grid-cols-4 gap-6 py-6">
-      {productsToDisplay.map((product) => (
+    <div>
+      {/* {productsToDisplay.map((product) => (
         <ProductCard key={product.id} product={product} />
-      ))}
+      ))} */}
+      {/* {filteredProducts.map((product) => (
+        <div key={product.id}> {product.category}</div>
+      ))} */}
+      <CategoriesHomePage />
+
       {loading && (
         <div className="flex items-center justify-center min-h-screen">
           <ClipLoader color={"black"} loading={loading} size={150} />

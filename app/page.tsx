@@ -7,7 +7,7 @@ export default function HomePageShop() {
   return (
     <>
       <div className="container flex mx-auto justify-center max-w-[1540px] w-full px-7">
-        <section className="py-10 px-4">
+        <section className="py-10 px-4 w-full max-w-[1315px]">
           <div className="container mx-auto">
             <DisplayProducts />
           </div>

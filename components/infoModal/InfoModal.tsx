@@ -49,9 +49,9 @@ const InfoModal = () => {
             initial="initial"
             animate="enter"
             exit="exit"
-            className="z-20 fixed top-0 right-0 w-[30vw] min-w-[410px] py-2 h-[90vh] bg-white bg-opacity-75 border-l-2 border-b-2 rounded-l-md border-gray-800 overflow-y-scroll"
+            className="z-20 fixed top-[10vh] right-0 w-[30vw] min-w-[410px] py-2 h-[70vh] bg-white  border-l-2 border-b-2 border-t-2 rounded-l-md border-gray-800 overflow-y-scroll"
           >
-            <div className="py-28 px-6 flex flex-col">
+            <div className="py-6 px-6 flex flex-col">
               <button
                 onClick={handleCloseModal}
                 className="text-red-500 text-3xl text-end absolute top-26 right-2"
