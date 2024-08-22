@@ -22,7 +22,7 @@ export default function CartLayout({
                 pathname === "/cart" ? "text-black" : "text-gray-400"
               }`}
             >
-              Your Cart <BsCart3 />
+              Cart <BsCart3 />
             </div>
           </Link>
           <Link href="/cart/order">

@@ -38,9 +38,16 @@ const cartProducts = createSlice({
         }
       }
     },
+    clearCart: () => {
+      return initialState;
+    },
   },
 });
 
-export const { addProduct, removeProduct, decrementProductQuantity } =
-  cartProducts.actions;
+export const {
+  addProduct,
+  removeProduct,
+  decrementProductQuantity,
+  clearCart,
+} = cartProducts.actions;
 export default cartProducts.reducer;

@@ -5,9 +5,10 @@ import googlePay from "@/assets/paymentMethodLogs/Google-Pay-logo.png";
 import paypal from "@/assets/paymentMethodLogs/Logo-Paypal.png";
 import Image from "next/image";
 
-export const PaymentMethodSelector = () => {
-  const [selectedMethod, setSelectedMethod] = useState<string>("");
-
+export const PaymentMethodSelector = ({
+  setSelectedMethod,
+  selectedMethod,
+}) => {
   const paymentMethods = [
     { id: "blik", name: "BLIK", image: blik },
     {
@@ -27,7 +28,7 @@ export const PaymentMethodSelector = () => {
         {paymentMethods.map((method) => (
           <label
             key={method.id}
-            className={`flex items-center justify-between p-4 cursor-pointer hover:bg-gray-50 ${
+            className={`flex items-center justify-between p-4 cursor-pointer duration-300 hover:bg-gray-50 ${
               method.id === "cashOnDelivery" ? "bg-gray-100" : ""
             } ${
               method.id === selectedMethod
