@@ -8,6 +8,7 @@ import AddToCartButton from "@/components/buttons/AddProduct";
 import useHandleToats from "@/utils/hooks/useHandleToasts";
 import LoadingSpinner from "@/utils/LoadingSpinner";
 import useProductData from "@/utils/hooks/useProductData";
+import Services from "@/components/productPage/Services";
 
 export default function ProductPage() {
   const { product, loading } = useProductData();
@@ -40,6 +41,7 @@ export default function ProductPage() {
           <ReferenceComments currentProduct={product} />
         </div>
       </div>
+      <Services />
     </div>
   );
 }

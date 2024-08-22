@@ -7,7 +7,7 @@ import Image from "next/image";
 import AddProductButton from "../buttons/AddProduct";
 import ReferenceComments from "./ReferenceComments";
 import { AnimatePresence, motion } from "framer-motion";
-import { menuSlide } from "@/app/styles/animations/animateVariants";
+import { menuSlide } from "@/components/animations/animateVariants";
 import Curve from "./Curve";
 import ClipLoader from "react-spinners/ClipLoader";
 import MoreDetailsBtn from "../buttons/MoreDetailsBtn";

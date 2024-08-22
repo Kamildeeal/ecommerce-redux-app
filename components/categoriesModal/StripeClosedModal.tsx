@@ -2,7 +2,7 @@ import React from "react";
 import categoryIcons from "./CategoryIcons";
 import Categories from "@/lib/enums/ProductCategories";
 import { AnimatePresence, motion } from "framer-motion";
-import { stripeSlide } from "@/app/styles/animations/animateVariants";
+import { stripeSlide } from "@/components/animations/animateVariants";
 
 const ClosedModal = ({ handleOpenModal }: { handleOpenModal: () => void }) => {
   return (

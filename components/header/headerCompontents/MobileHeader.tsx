@@ -6,7 +6,7 @@ import HeaderCategoriesBtn from "./HeaderCategoriesBtn";
 import HeaderSearchInput from "./HeaderSearchInput";
 import UserSvg from "@/assets/icons/UserSvg";
 import NavbarCartIcon from "./NavbarCartIcon";
-import { categoriesSlide } from "@/app/styles/animations/animateVariants";
+import { categoriesSlide } from "@/components/animations/animateVariants";
 
 interface MobileHeaderProps {
   isScrolled: boolean;

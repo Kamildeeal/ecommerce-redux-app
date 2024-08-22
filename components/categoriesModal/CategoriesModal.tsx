@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import CategoriesList from "./CategoriesList";
 import { AnimatePresence, motion } from "framer-motion";
-import { categoriesSlide } from "@/app/styles/animations/animateVariants";
+import { categoriesSlide } from "@/components/animations/animateVariants";
 
 const CategoriesModal = ({
   handleCloseModal,

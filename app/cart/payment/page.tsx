@@ -10,8 +10,10 @@ import Link from "next/link";
 import ClientShippingInfo from "@/components/paymentPage/ClientShippingInfo";
 import Swal from "sweetalert2";
 import { clearCart } from "@/lib/features/products/CartProductsSlice";
+import { useRouter } from "next/navigation";
 
 export default function PaymentPage() {
+  const router = useRouter();
   const cartProducts = useAppSelector(
     (state: RootState) => state.cartProducts
   ) as CartProduct[];
@@ -25,8 +27,10 @@ export default function PaymentPage() {
         icon: "success",
         title: "Payment Successful!",
         text: `Your payment was completed successfully with ${selectedMethod}`,
+      }).then(() => {
+        dispatch(clearCart());
+        router.push("/");
       });
-      dispatch(clearCart());
     } else if (selectedMethod === "") {
       Swal.fire({
         icon: "warning",

@@ -8,6 +8,7 @@ import ClipLoader from "react-spinners/ClipLoader";
 import ProductCard from "@/components/displayProducts/ProductCard";
 import InfoModal from "@/components/infoModal/InfoModal";
 import useCategoryProducts from "@/utils/hooks/useCategoryProducts";
+import Services from "@/components/productPage/Services";
 
 type CategoryPageProps = {
   params: { category: string[] };
@@ -87,6 +88,7 @@ const CategoryPage = ({ params }: CategoryPageProps) => {
         ))}
         {loading && <p>Loading more products...</p>}
       </div>
+      <Services />
 
       <div>
         <AnimatePresence>
