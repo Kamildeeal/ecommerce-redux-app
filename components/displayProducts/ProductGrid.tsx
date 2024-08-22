@@ -62,6 +62,9 @@ const ProductGrid = () => {
       {/* {filteredProducts.map((product) => (
         <div key={product.id}> {product.category}</div>
       ))} */}
+      <h2 className="text-xl sm:text-2xl  mt-2 font-roboto text-gray-800 font-semibold mb-4">
+        Categories and products
+      </h2>
       <CategoriesHomePage />
 
       {loading && (

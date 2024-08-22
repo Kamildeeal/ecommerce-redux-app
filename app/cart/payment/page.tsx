@@ -16,15 +16,14 @@ export default function PaymentPage() {
   const clientInfo = useAppSelector((state: RootState) => state.clientInfo);
 
   return (
-    <div className="flex mx-auto flex-col ">
-      <div className="px-8 sm:px-20 w-full ">
-        <div className="xl:flex-row flex flex-col">
+    <div className="flex mx-auto flex-col">
+      <div className="px-8 sm:px-20 w-full items-center justify-center flex ">
+        <div className="xl:flex-row flex flex-col max-w-[1270px]">
           <div className="flex flex-col md:flex-row justify-center mx-auto">
             {clientInfo.firstName !== "" && <ClientShippingInfo />}
-
-            <div className="w-full lg:min-w-[600px] text-2xl md:text-3xl px-2 md:px-[3.2rem] my-2 ">
-              <PaymentMethodSelector />
-            </div>
+          </div>
+          <div className="w-full lg:min-w-[600px] text-2xl md:text-3xl px-2 md:px-[3.2rem] my-2 ">
+            <PaymentMethodSelector />
           </div>
           <div className="xl:flex-row flex flex-col">
             <div className="px-4 mb-6 sm:px-20 w-full min-w-[310px]">

@@ -25,13 +25,7 @@ export default function Hero() {
   return (
     <section className="pb-20 pt-4 text-center mb-4 w-full">
       <div className="mx-auto">
-        <h2 className="text-4xl font-bold mb-4 font-climate-crisis">
-          Welcome to KamShop
-        </h2>
-        <p className="text-gray-700 mb-2 pb-6 font-climate-crisis">
-          Discover our range of products and enjoy shopping with us!
-        </p>
-        <div className="relative max-w-[1100px] w-full h-[500px] mx-auto">
+        <div className="relative max-w-[1100px] w-full h-[300px] mx-auto border-2 border-gray-300 rounded-xl overflow-hidden">
           <AnimatePresence>
             <motion.div
               key={currentIndex}
