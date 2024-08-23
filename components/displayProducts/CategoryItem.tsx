@@ -21,10 +21,8 @@ const CategoryItem = ({
         <Image
           src={imageSrc}
           alt={altText}
-          className={`object-contain mx-auto group-hover:rotate-${
-            rotation || "6"
-          } transition-transform duration-300 ease-in-out transform origin-center 
-                    w-[80px] sm:w-[100px] md:w-[120px] lg:w-[130px]`}
+          className={`object-contain mx-auto transition-transform duration-300 ease-in-out transform origin-center 
+            w-[80px] sm:w-[100px] md:w-[120px] lg:w-[130px] group-hover:rotate-${rotation} group-hover:rotate-[${rotation}deg]`}
           width={130}
           height={130}
         />

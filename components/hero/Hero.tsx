@@ -23,7 +23,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="pb-20 pt-4 text-center mb-4 w-full">
+    <section className="pb-4 text-center mb-4 w-full">
       <div className="mx-auto">
         <div className="relative max-w-[1100px] w-full h-[300px] mx-auto border-2 border-gray-300 rounded-xl overflow-hidden">
           <AnimatePresence>

@@ -25,9 +25,9 @@ const DesktopHeader = ({ isScrolled, handleOpenModal }: DesktopHeaderProps) => {
         <HeaderSearchInput />
       </div>
       <div className="flex items-center space-x-6">
-        <button className="bg-white text-gray-800 p-2 rounded-full">
+        {/* <button className="bg-white text-gray-800 p-2 rounded-full">
           <UserSvg />
-        </button>
+        </button> */}
         <NavbarCartIcon />
       </div>
     </div>

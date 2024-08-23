@@ -48,9 +48,9 @@ const MobileHeader = ({
             )}
           </AnimatePresence>
           <div className="flex gap-4 ml-auto">
-            <button className="bg-white text-gray-800 p-2 rounded-full">
+            {/* <button className="bg-white text-gray-800 p-2 rounded-full">
               <UserSvg />
-            </button>
+            </button> */}
             <NavbarCartIcon />
           </div>
         </div>

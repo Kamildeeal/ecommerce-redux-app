@@ -95,7 +95,7 @@ const Footer = () => {
           <FaYoutube className="text-2xl text-gray-700 hover:text-red-500" />
           <FaPinterest className="text-2xl text-gray-700 hover:text-red-200" />
         </div>
-        <div className="text-xs text-gray-500">
+        <div className="text-xs text-center text-gray-500">
           KamShop 2024 - educational project #react #next.js #redux
         </div>
       </div>

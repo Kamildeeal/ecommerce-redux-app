@@ -10,7 +10,7 @@ export default function NavbarCartIcon() {
 
   return (
     <Link href="/cart">
-      <div className="relative lg:text-2xl bg-yellow-700  flex gap-2 px-6 py-2 rounded-md justify-center items-center cursor-pointer hover:bg-yellow-600">
+      <div className="relative lg:text-2xl bg-yellow-700  flex gap-2 px-6 py-2 rounded-md justify-center items-center cursor-pointer hover:bg-yellow-600 hover:text-gray-800 duration-150">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -26,7 +26,7 @@ export default function NavbarCartIcon() {
           />
         </svg>
         {cartProducts.length > 0 && <CartDetails />}
-        <span className="hover:text-black hidden sm:flex">Cart</span>
+        <span className=" hidden sm:flex">Cart</span>
       </div>
     </Link>
   );
