@@ -24,7 +24,7 @@ const ProductDetails = ({ product }: { product: Product }) => (
       <div className="text-xl font-extrabold my-1">{product.brand}</div>
     )}
     <div className="my-2 text-lg semibold pr-4">{product.description}</div>
-    <div className="text-base my-2 semidbold flex gap-12">
+    <div className="text-base my-2 semidbold flex gap-12 items-center">
       <p className="font-sans text-base text-gray-600">
         Rating: {product.rating}
       </p>

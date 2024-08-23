@@ -49,7 +49,7 @@ const InfoModal = () => {
             initial="initial"
             animate="enter"
             exit="exit"
-            className="z-20 fixed top-[10vh] right-0 w-[30vw] min-w-[410px] py-2 h-[70vh] bg-white  border-l-2 border-b-2 border-t-2 rounded-l-md border-gray-800 overflow-y-scroll"
+            className="z-20 fixed top-[16vh] right-0 w-[30vw] min-w-[410px] py-2 h-[70vh] bg-white  border-l-2 border-b-2 border-t-2 rounded-l-md border-gray-800 overflow-y-scroll"
           >
             <div className="py-6 px-6 flex flex-col">
               <button
