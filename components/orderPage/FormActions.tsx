@@ -16,8 +16,8 @@ const FormActions = ({ isFormValid, handleReset }) => (
           className={`${
             isFormValid
               ? "bg-blue-600 border-2 border-gray-800"
-              : "mx-auto lg:my-2 px-4 py-2 text-xl border-2 max-w-max border-gray-800 font-bold text-white  rounded-lg shadow-sm cursor transition bg-gray-800 hover:text-gray-800 hover:bg-white cursor-not-allowed"
-          } text-white shadow-bottom-only shadow-neutral-800 rounded-xl py-2 px-6 mr-2 sm:mr-8`}
+              : "mx-auto lg:my-2 text-xl border-2 max-w-max border-gray-800 font-bold text-white  rounded-lg shadow-sm cursor transition bg-gray-800  hover:bg-blue-600 cursor-not-allowed"
+          } text-white shadow-bottom-only shadow-neutral-800 rounded-xl py-2 px-4 mr-2 sm:mr-8 duration-150`}
           disabled={!isFormValid}
         >
           Continue
@@ -26,7 +26,7 @@ const FormActions = ({ isFormValid, handleReset }) => (
     </Tooltip>
     <button
       type="button"
-      className="bg-black text-white shadow-bottom-only shadow-gray-800 rounded-xl hover:bg-gray-900 py-2 px-6 border-2 border-blue-600"
+      className=" bg-blend-darken text-black shadow-bottom-only font-semibold shadow-gray-800 rounded-xl hover:bg-gray-800 hover:text-white py-2 px-6 border-2 border-gray-800 duration-150"
       onClick={handleReset}
     >
       Reset
