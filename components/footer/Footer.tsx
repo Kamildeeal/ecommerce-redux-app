@@ -9,10 +9,10 @@ import {
 
 const Footer = () => {
   return (
-    <footer className="py-8 px-4 font-sans max-w-[1283px] w-full mx-auto">
+    <footer className="py-8 px-4 font-sans max-w-[1283px] w-full sm:mx-12">
       <div className="border-t-1 shadow-bottom-only shadow-black h-[3px] mb-12"></div>
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
           <div>
             <h3 className="font-semibold text-lg mb-4">Privacy Policy</h3>
             <ul className="space-y-2 text-sm text-gray-600">

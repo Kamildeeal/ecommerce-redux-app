@@ -34,7 +34,7 @@ const CategoriesHomePage = () => {
   ];
 
   return (
-    <div className="flex flex-wrap justify-center gap-6 py-6 max-w-[1315px] w-full">
+    <div className="flex flex-wrap justify-center gap-2 sm:gap-6 py-6 max-w-[1315px] w-full">
       {categories.map((category, index) => (
         <CategoryItem
           key={index}

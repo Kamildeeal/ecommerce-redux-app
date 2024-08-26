@@ -85,9 +85,9 @@ const ProductCard = ({ product }: ProductCardProps) => {
         >
           <div className="flex items-center">
             <RatingComponent rating={Math.round(product.rating * 2) / 2} />
-            <span className="text-gray-700 text-base ml-3">
+            {/* <span className="text-gray-700 text-base ml-3">
               ({Math.floor(Math.random() * 101)})
-            </span>
+            </span> */}
           </div>
         </Tooltip>
         <div className="flex flex-col mt-4 items-center gap-2 w-full">
