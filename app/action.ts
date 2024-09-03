@@ -1,4 +1,5 @@
 "use server";
+import { revalidatePath } from "next/cache";
 import { addOrder, getOrderHistory } from "../db";
 import { auth } from "@clerk/nextjs/server";
 
@@ -10,6 +11,7 @@ interface OrderItem {
 }
 
 export async function addOrderToHistory(userId: string, items: any[]) {
+  revalidatePath("/order-history");
   if (!userId) {
     throw new Error("User not authenticated");
   }
@@ -22,6 +24,7 @@ export async function addOrderToHistory(userId: string, items: any[]) {
 }
 
 export async function fetchOrderHistory() {
+  revalidatePath("/order-history");
   const { userId } = auth();
   if (!userId) {
     throw new Error("User not authenticated");
