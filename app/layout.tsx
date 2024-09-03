@@ -11,6 +11,7 @@ import Loading from "./product/[title]/loading";
 import "react-toastify/dist/ReactToastify.css";
 import ToastCompontent from "@/utils/ToastCompontent";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import { ClerkProvider } from "@clerk/nextjs";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,6 +26,12 @@ const climateCrisis = Climate_Crisis({
   variable: "--font-climate-crisis",
 });
 
+const CLERK_PUBLISHABLE_KEY = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY;
+
+if (!CLERK_PUBLISHABLE_KEY) {
+  throw new Error("Missing clerk key");
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -32,18 +39,20 @@ export default function RootLayout({
 }>) {
   return (
     <StoreProvider>
-      <html lang="en" className={climateCrisis.variable}>
-        <body className="flex flex-col min-h-screen">
-          <GoogleAnalytics gaId="G-FBNWCD71JM" />
-          <ToastCompontent />
-          <TopLinksSection />
-          <Header />
-          <Suspense fallback={<Loading />}>
-            <div className="flex-grow">{children}</div>
-          </Suspense>
-          <Footer />
-        </body>
-      </html>
+      <ClerkProvider publishableKey={CLERK_PUBLISHABLE_KEY}>
+        <html lang="en" className={climateCrisis.variable}>
+          <body className="flex flex-col min-h-screen">
+            <GoogleAnalytics gaId="G-FBNWCD71JM" />
+            <ToastCompontent />
+            <TopLinksSection />
+            <Header />
+            <Suspense fallback={<Loading />}>
+              <div className="flex-grow">{children}</div>
+            </Suspense>
+            <Footer />
+          </body>
+        </html>
+      </ClerkProvider>
     </StoreProvider>
   );
 }

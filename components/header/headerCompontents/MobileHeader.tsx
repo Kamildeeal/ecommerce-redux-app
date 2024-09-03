@@ -7,6 +7,8 @@ import HeaderSearchInput from "./HeaderSearchInput";
 import UserSvg from "@/assets/icons/UserSvg";
 import NavbarCartIcon from "./NavbarCartIcon";
 import { categoriesSlide } from "@/components/animations/animateVariants";
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
+import Link from "next/link";
 
 interface MobileHeaderProps {
   isScrolled: boolean;
@@ -47,10 +49,26 @@ const MobileHeader = ({
               </motion.div>
             )}
           </AnimatePresence>
-          <div className="flex gap-4 ml-auto">
-            {/* <button className="bg-white text-gray-800 p-2 rounded-full">
-              <UserSvg />
-            </button> */}
+          <div className="flex gap-4 ml-auto items-center">
+            <SignedOut>
+              <Link href="/sign-in">
+                <div className="relative group">
+                  <SignInButton>
+                    <UserSvg />
+                  </SignInButton>
+                  <span className="absolute top-[150%] left-1/2 duration-150 transform -translate-x-1/2 mb-2 hidden w-max bg-gray-500 text-white text-xs rounded-lg py-1 px-2 group-hover:block whitespace-no-wrap">
+                    Sign in to your account
+                  </span>
+                </div>
+              </Link>
+            </SignedOut>
+            <div className="flex items-center">
+              <SignedIn>
+                <div className="my-1 flex items-center border-2 border-white rounded-full">
+                  <UserButton />
+                </div>
+              </SignedIn>
+            </div>
             <NavbarCartIcon />
           </div>
         </div>
