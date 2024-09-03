@@ -11,6 +11,9 @@ import ClientShippingInfo from "@/components/paymentPage/ClientShippingInfo";
 import Swal from "sweetalert2";
 import { clearCart } from "@/lib/features/products/CartProductsSlice";
 import { useRouter } from "next/navigation";
+import { addOrderToHistory } from "@/app/action";
+import { auth } from "@clerk/nextjs/server";
+import { useUser } from "@clerk/nextjs";
 
 export default function PaymentPage() {
   const router = useRouter();
@@ -20,17 +23,41 @@ export default function PaymentPage() {
   const clientInfo = useAppSelector((state: RootState) => state.clientInfo);
   const [selectedMethod, setSelectedMethod] = useState<string>("");
   const dispatch = useAppDispatch();
+  const { user } = useUser();
 
-  const handlePayNow = () => {
+  const handlePayNow = async () => {
     if (selectedMethod !== "" && cartProducts.length !== 0) {
-      Swal.fire({
-        icon: "success",
-        title: "Payment Successful!",
-        text: `Your payment was completed successfully with ${selectedMethod}`,
-      }).then(() => {
-        dispatch(clearCart());
-        router.push("/");
-      });
+      try {
+        if (!user.id) {
+          throw new Error("User not authenticated");
+        }
+
+        await addOrderToHistory(
+          user.id,
+          cartProducts.map((item) => ({
+            id: item.id.toString(),
+            name: item.title,
+            price: item.price,
+            quantity: item.quantity,
+          }))
+        );
+
+        Swal.fire({
+          icon: "success",
+          title: "Payment Successful!",
+          text: `Your payment was completed successfully with ${selectedMethod}`,
+        }).then(() => {
+          dispatch(clearCart());
+          router.push("/");
+        });
+      } catch (error) {
+        console.error("Failed to add order to history:", error);
+        Swal.fire({
+          icon: "error",
+          title: "Order Processing Failed",
+          text: "There was an error processing your order. Please try again.",
+        });
+      }
     } else if (selectedMethod === "") {
       Swal.fire({
         icon: "warning",
@@ -39,6 +66,26 @@ export default function PaymentPage() {
       });
     }
   };
+
+  // const handlePayNow = () => {
+  //   if (selectedMethod !== "" && cartProducts.length !== 0) {
+  //     Swal.fire({
+  //       icon: "success",
+  //       title: "Payment Successful!",
+  //       text: `Your payment was completed successfully with ${selectedMethod}`,
+  //     }).then(() => {
+  //       addOrderToHistory(cartProducts);
+  //       dispatch(clearCart());
+  //       router.push("/");
+  //     });
+  //   } else if (selectedMethod === "") {
+  //     Swal.fire({
+  //       icon: "warning",
+  //       title: "No Payment Method Selected",
+  //       text: "Please choose a payment method before proceeding.",
+  //     });
+  //   }
+  // };
 
   return (
     <div className="flex mx-auto flex-col">

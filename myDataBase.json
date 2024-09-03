@@ -1,0 +1,30 @@
+{
+  "orders": [
+    {
+      "id": "1725378379824",
+      "userId": "user_2lYSXNYE1K51jFlv47VI7SkdtGD",
+      "items": [
+        { "id": "3", "name": "Powder Canister", "price": 14.99, "quantity": 1 }
+      ],
+      "totalAmount": 14.99,
+      "date": "2024-09-03T15:46:19.824Z"
+    },
+    {
+      "id": "1725378677847",
+      "userId": "user_2lYSXNYE1K51jFlv47VI7SkdtGD",
+      "items": [
+        {
+          "id": "1",
+          "name": "Essence Mascara Lash Princess",
+          "price": 9.99,
+          "quantity": 1
+        },
+        { "id": "50", "name": "Black Whisk", "price": 9.99, "quantity": 1 },
+        { "id": "51", "name": "Boxed Blender", "price": 39.99, "quantity": 1 },
+        { "id": "53", "name": "Chopping Board", "price": 12.99, "quantity": 2 }
+      ],
+      "totalAmount": 85.95,
+      "date": "2024-09-03T15:51:17.847Z"
+    }
+  ]
+}

@@ -22,16 +22,22 @@ const CountdownTimer = () => {
   };
 
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const timer = setTimeout(() => {
       setTimeLeft(calculateTimeLeft());
     }, 1000);
 
     return () => clearTimeout(timer);
-  });
+  }, [timeLeft]);
 
   const formatTime = (time: number) => (time < 10 ? `0${time}` : time);
+
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <div className="bg-yellow-300 text-gray-900 py-2 px-4 text-center font-bold">
