@@ -1,5 +1,6 @@
 "use server";
 import { JsonDB, Config } from "node-json-db";
+import { revalidatePath } from "next/cache";
 
 // Initialize the JSON database
 const db = new JsonDB(new Config("myDataBase", true, false, "/"));
@@ -23,6 +24,7 @@ export async function addOrder(
   userId: string,
   items: OrderItem[]
 ): Promise<void> {
+  revalidatePath("/order-history");
   try {
     const newOrder: Order = {
       id: Date.now().toString(),
