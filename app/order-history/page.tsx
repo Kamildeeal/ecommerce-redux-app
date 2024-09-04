@@ -27,14 +27,15 @@
 // export default OrderHistoryPage;
 
 import React from "react";
-import { fetchOrderHistory } from "@/app/action";
+// import { fetchOrderHistory } from "@/app/action";
 
 const OrderHistoryPage = async () => {
-  const orderHistory = await fetchOrderHistory();
+  // const orderHistory = await fetchOrderHistory();
 
   return (
     <div className="flex justify-center items-center">
-      <div>
+      order history
+      {/* <div>
         {orderHistory && orderHistory.length > 0 ? (
           orderHistory.map((order) => (
             <div
@@ -59,7 +60,7 @@ const OrderHistoryPage = async () => {
         ) : (
           <p>No orders found</p>
         )}
-      </div>
+      </div> */}
     </div>
   );
 };

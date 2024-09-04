@@ -1,41 +1,41 @@
-"use server";
-import { revalidatePath } from "next/cache";
-import { addOrder, getOrderHistory } from "../db";
-import { auth } from "@clerk/nextjs/server";
+// "use server";
+// import { revalidatePath } from "next/cache";
+// import { addOrder, getOrderHistory } from "../db";
+// import { auth } from "@clerk/nextjs/server";
 
-interface OrderItem {
-  id: string;
-  name: string;
-  price: number;
-  quantity: number;
-}
+// interface OrderItem {
+//   id: string;
+//   name: string;
+//   price: number;
+//   quantity: number;
+// }
 
-export async function addOrderToHistory(userId: string, items: any[]) {
-  revalidatePath("/order-history");
-  if (!userId) {
-    throw new Error("User not authenticated");
-  }
-  try {
-    await addOrder(userId, items);
-  } catch (error) {
-    console.error("Error adding order to history:", error);
-    throw error;
-  }
-}
+// export async function addOrderToHistory(userId: string, items: any[]) {
+//   revalidatePath("/order-history");
+//   if (!userId) {
+//     throw new Error("User not authenticated");
+//   }
+//   try {
+//     await addOrder(userId, items);
+//   } catch (error) {
+//     console.error("Error adding order to history:", error);
+//     throw error;
+//   }
+// }
 
-export async function fetchOrderHistory() {
-  revalidatePath("/order-history");
-  const { userId } = auth();
-  if (!userId) {
-    throw new Error("User not authenticated");
-  }
-  try {
-    return await getOrderHistory(userId);
-  } catch (error) {
-    console.error("Error fetching order history:", error);
-    throw error;
-  }
-}
+// export async function fetchOrderHistory() {
+//   revalidatePath("/order-history");
+//   const { userId } = auth();
+//   if (!userId) {
+//     throw new Error("User not authenticated");
+//   }
+//   try {
+//     return await getOrderHistory(userId);
+//   } catch (error) {
+//     console.error("Error fetching order history:", error);
+//     throw error;
+//   }
+// }
 
 // "use server";
 
