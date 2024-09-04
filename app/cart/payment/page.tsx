@@ -30,10 +30,10 @@ export default function PaymentPage() {
     }
 
     const orderData = {
-      id: crypto.randomUUID(), // Generate a unique ID for the order
+      id: crypto.randomUUID(),
       userId: user.id,
       items: cartProducts.map((product) => ({
-        id: product.id.toString(), // Ensure id is a string
+        id: product.id.toString(),
         name: product.title,
         price: product.price,
         quantity: product.quantity,
