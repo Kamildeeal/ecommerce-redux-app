@@ -4,6 +4,9 @@ eCommerce shop project, a modern web application designed to provide a seamless 
 Main assumptions:
 - Implement Redux State Management
 - Integrate App Router Architecture (NextJs 14.2.4) and Redux. (https://redux.js.org/usage/nextjs)
+- Add authentication with Clerk
+- Connect with MongoDB to store user comments
+- Logged users are able to check previous orders
 - Create unit and integration tests with Jest/React-testing-library
 
 ## Features
